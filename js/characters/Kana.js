@@ -82,7 +82,7 @@ const Kana = {
     }
   ],
   "campaign": "Mundo Misterioso",
-  "status": "Avtiva",
+  "status": "Activa",
   "year": 2026,
   "sheet": { type: "link", url: "https://www.dndbeyond.com/characters/168184800", label: "Ver ficha" },
 

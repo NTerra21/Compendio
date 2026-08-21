@@ -105,10 +105,10 @@ const Noctharis = {
       "content": "Parte del material documentado es un resumen en primera persona de campaña (mundo feérico, Tortuga, Scramshak, etc.). Se conserva como memoria de hechos vividos, no como ficha mecánica."
     }
   ],
-  "campaign": null,
-  "status": null,
-  "year": null,
-  "sheet": null,
+  "campaign": "Piratas",
+  "status": "Vivo",
+  "year": "2025-2026",
+  "sheet": { type: "link", url: "https://www.dndbeyond.com/characters/150031732", label: "Ver ficha" },
 
   // ============================================================
   // TEMA VISUAL / COLORES

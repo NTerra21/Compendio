@@ -91,8 +91,8 @@ const Thalorin = {
     }
   ],
   "campaign": "Gigantes",
-  "status": null,
-  "year": null,
+  "status": "Muerto",
+  "year": "2024",
   "sheet": null,
 
   // ============================================================

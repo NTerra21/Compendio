@@ -77,10 +77,10 @@ const Reonidas = {
       "content": "Neutral bueno, con inclinación hacia neutral, según el documento."
     }
   ],
-  "campaign": null,
-  "status": null,
-  "year": null,
-  "sheet": null,
+  "campaign": "El Relojero",
+  "status": "Activo",
+  "year": "2025-206",
+  "sheet": { type: "link", url: "https://www.dndbeyond.com/characters/128724086", label: "Ver ficha" },
 
   // ============================================================
   // TEMA VISUAL / COLORES

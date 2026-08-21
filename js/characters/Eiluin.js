@@ -89,9 +89,9 @@ const Eiluin = {
       "content": "Owlin, 17 años. Arco hecho a maño por su padre. Ciudad natal referida como \"A\" en el documento original."
     }
   ],
-  "campaign": null,
-  "status": null,
-  "year": null,
+  "campaign": "Corazon de Dralox",
+  "status": "Muerto",
+  "year": "2025-2026",
   "sheet": null,
 
   // ============================================================
@@ -103,7 +103,7 @@ const Eiluin = {
     // Fondo general de la pagina al abrir este personaje.
     background: "linear-gradient(135deg, #0d1a22, #1a3a48)",
     // Fondo de la hoja/panel principal.
-    sheet: "linear-gradient(160deg, #e8f2f4 0%, #d0e4ea 100%)",
+    sheet: "linear-gradient(160deg, #5dffa6 0%, #b0e5f5 100%)",
     // Titulos y elementos importantes.
     primary: "#1a3038",
     // Texto secundario y detalles.
