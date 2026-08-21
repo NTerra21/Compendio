@@ -82,7 +82,7 @@ const Thalorin = {
       "content": "Neutral bueno, según el documento de personaje."
     }
   ],
-  "campaign": null,
+  "campaign": "Gigantes",
   "status": null,
   "year": null,
   "sheet": null

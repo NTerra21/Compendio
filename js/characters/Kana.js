@@ -73,10 +73,10 @@ const Kana = {
       "content": "Estado de reposo / magia menor: ojos violetas; hechizos ofensivos fuertes: iris hacia rojo carmesí y calor ambiental; maximo esfuerzo: ojos completamente rojos y ardientes."
     }
   ],
-  "campaign": null,
-  "status": null,
-  "year": null,
-  "sheet": null
+  "campaign": "Mundo Misterioso",
+  "status": "Avtiva",
+  "year": 2026,
+  "sheet": "https://www.dndbeyond.com/characters/168184800"
 };
 
 export default Object.freeze(Kana);

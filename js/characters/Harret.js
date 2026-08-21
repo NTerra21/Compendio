@@ -66,9 +66,9 @@ const Harret = {
     }
   ],
   "other": [],
-  "campaign": null,
-  "status": null,
-  "year": null,
+  "campaign": "Gigantes",
+  "status": "Cancelada",
+  "year": 2024,
   "sheet": null
 };
 
