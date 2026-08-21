@@ -81,6 +81,10 @@ function brokenCharacter(label, reason) {
           ".js, revisa la sintaxis y asegurate de exportar el objeto por defecto (export default)."
       }
     ],
+    campaign: null,
+    status: null,
+    year: null,
+    sheet: null,
     __loadError: true
   });
 }

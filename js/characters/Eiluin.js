@@ -80,7 +80,11 @@ const Eiluin = {
       "title": "Datos básicos",
       "content": "Owlin, 17 años. Arco hecho a maño por su padre. Ciudad natal referida como \"A\" en el documento original."
     }
-  ]
+  ],
+  "campaign": null,
+  "status": null,
+  "year": null,
+  "sheet": null
 };
 
 export default Object.freeze(Eiluin);

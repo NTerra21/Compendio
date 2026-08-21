@@ -72,7 +72,11 @@ const Kana = {
       "title": "Notas de apariencia mágica",
       "content": "Estado de reposo / magia menor: ojos violetas; hechizos ofensivos fuertes: iris hacia rojo carmesí y calor ambiental; maximo esfuerzo: ojos completamente rojos y ardientes."
     }
-  ]
+  ],
+  "campaign": null,
+  "status": null,
+  "year": null,
+  "sheet": null
 };
 
 export default Object.freeze(Kana);

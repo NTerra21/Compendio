@@ -81,6 +81,86 @@ function hasList(value) {
   return Array.isArray(value) && value.length > 0;
 }
 
+/**
+ * Normaliza sheet / sheets a una lista usable.
+ * Acepta: null | objeto | arreglo. Ignora entradas invalidas.
+ */
+function normalizeSheets(character) {
+  if (!character || character.__loadError) return [];
+
+  let raw = [];
+  if (Array.isArray(character.sheets)) {
+    raw = character.sheets.slice();
+  }
+  if (character.sheet != null) {
+    raw = raw.concat(
+      Array.isArray(character.sheet) ? character.sheet : [character.sheet]
+    );
+  }
+
+  return raw.filter(function (entry) {
+    return (
+      entry &&
+      typeof entry === "object" &&
+      hasText(entry.url) &&
+      (entry.type === "link" || entry.type === "pdf")
+    );
+  });
+}
+
+function sheetButtonHtml(entry) {
+  const label = hasText(entry.label) ? entry.label : "Ver ficha";
+  const isExternal = entry.type === "link";
+  const relAttrs = isExternal
+    ? ' target="_blank" rel="noopener noreferrer"'
+    : ' target="_blank" rel="noopener"';
+
+  return (
+    '<a class="btn btn--sheet" href="' +
+    escapeHtml(entry.url) +
+    '"' +
+    relAttrs +
+    ">" +
+    escapeHtml(label) +
+    "</a>"
+  );
+}
+
+function sheetsToolbarHtml(character) {
+  const sheets = normalizeSheets(character);
+  if (!sheets.length) return "";
+  return (
+    '<div class="sheet-nav__sheets" aria-label="Fichas del personaje">' +
+    sheets.map(sheetButtonHtml).join("") +
+    "</div>"
+  );
+}
+
+function metadataHtml(character) {
+  const bits = [];
+  if (hasText(character.campaign)) {
+    bits.push(
+      '<span class="meta-chip">Campaña: ' +
+        escapeHtml(character.campaign) +
+        "</span>"
+    );
+  }
+  if (hasText(character.status)) {
+    bits.push(
+      '<span class="meta-chip">Estado: ' +
+        escapeHtml(character.status) +
+        "</span>"
+    );
+  }
+  if (hasText(character.year)) {
+    bits.push(
+      '<span class="meta-chip">Año: ' + escapeHtml(character.year) + "</span>"
+    );
+  }
+  if (!bits.length) return "";
+  return '<div class="sheet-header__meta">' + bits.join("") + "</div>";
+}
+
 function paragraphsHtml(paragraphs) {
   if (!hasList(paragraphs)) return "";
   return paragraphs
@@ -167,6 +247,70 @@ function setNavLabel(text) {
   if (navCurrent) navCurrent.textContent = text;
 }
 
+function cardHtml(character) {
+  const errorBadge = character.__loadError
+    ? '<p class="char-card__epithet">Error de carga</p>'
+    : "";
+  const searchBlob = [character.name, character.epithet, character.tagline]
+    .filter(hasText)
+    .join(" ")
+    .toLowerCase();
+
+  return (
+    '<a class="char-card" href="#/character/' +
+    encodeURIComponent(character.id) +
+    '" data-search="' +
+    escapeHtml(searchBlob) +
+    '" aria-label="Abrir ficha de ' +
+    escapeHtml(character.name) +
+    '">' +
+    '<div class="char-card__portrait">' +
+    portraitHtml(character, "char-card__img") +
+    "</div>" +
+    '<div class="char-card__body">' +
+    '<h2 class="char-card__name">' +
+    escapeHtml(character.name) +
+    "</h2>" +
+    errorBadge +
+    (hasText(character.epithet) && !character.__loadError
+      ? '<p class="char-card__epithet">' +
+        escapeHtml(character.epithet) +
+        "</p>"
+      : "") +
+    (hasText(character.tagline)
+      ? '<p class="char-card__tagline">' +
+        escapeHtml(character.tagline) +
+        "</p>"
+      : "") +
+    '<span class="char-card__cta">Abrir ficha <span aria-hidden="true">→</span></span>' +
+    "</div>" +
+    "</a>"
+  );
+}
+
+function bindGallerySearch(root) {
+  const input = root.querySelector("#gallery-search");
+  const grid = root.querySelector(".gallery-grid");
+  const empty = root.querySelector(".gallery-empty");
+  if (!input || !grid) return;
+
+  function applyFilter() {
+    const q = String(input.value || "")
+      .trim()
+      .toLowerCase();
+    let visible = 0;
+    grid.querySelectorAll(".char-card").forEach(function (card) {
+      const hay = card.getAttribute("data-search") || "";
+      const show = !q || hay.indexOf(q) !== -1;
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+    if (empty) empty.hidden = visible > 0;
+  }
+
+  input.addEventListener("input", applyFilter);
+}
+
 function renderGallery() {
   setNavLabel("Galería");
   document.title = "Compendio de Aventureros";
@@ -180,52 +324,25 @@ function renderGallery() {
     return;
   }
 
-  const cards = CHARACTERS.map(function (character) {
-    const errorBadge = character.__loadError
-      ? '<p class="char-card__epithet">Error de carga</p>'
-      : "";
-
-    return (
-      '<a class="char-card" href="#/character/' +
-      encodeURIComponent(character.id) +
-      '" aria-label="Abrir ficha de ' +
-      escapeHtml(character.name) +
-      '">' +
-      '<div class="char-card__portrait">' +
-      portraitHtml(character, "char-card__img") +
-      "</div>" +
-      '<div class="char-card__body">' +
-      '<h2 class="char-card__name">' +
-      escapeHtml(character.name) +
-      "</h2>" +
-      errorBadge +
-      (hasText(character.epithet) && !character.__loadError
-        ? '<p class="char-card__epithet">' +
-          escapeHtml(character.epithet) +
-          "</p>"
-        : "") +
-      (hasText(character.tagline)
-        ? '<p class="char-card__tagline">' +
-          escapeHtml(character.tagline) +
-          "</p>"
-        : "") +
-      '<span class="char-card__cta">Abrir ficha <span aria-hidden="true">→</span></span>' +
-      "</div>" +
-      "</a>"
-    );
-  }).join("");
+  const cards = CHARACTERS.map(cardHtml).join("");
 
   app.innerHTML =
     '<section class="gallery-hero">' +
     '<p class="gallery-hero__kicker">Archivo personal</p>' +
     '<h1 class="gallery-hero__title">Compendio de Aventureros</h1>' +
     '<p class="gallery-hero__lead">Un registro narrativo de quienes caminaron contigo. Elige un nombre para leer su historia.</p>' +
+    '<label class="gallery-search">' +
+    '<span class="gallery-search__icon" aria-hidden="true">🔍</span>' +
+    '<input id="gallery-search" type="search" placeholder="Buscar personaje..." autocomplete="off" />' +
+    "</label>" +
     "</section>" +
     '<section class="gallery-grid" aria-label="Galería de personajes">' +
     cards +
-    "</section>";
+    "</section>" +
+    '<p class="gallery-empty" hidden>No hay personajes que coincidan con la búsqueda.</p>';
 
   bindPortraitFallbacks(app);
+  bindGallerySearch(app);
 }
 
 function renderCharacter(id) {
@@ -269,6 +386,7 @@ function renderCharacter(id) {
         escapeHtml(character.epithet) +
         "</p>"
       : "") +
+    metadataHtml(character) +
     (hasText(character.description)
       ? '<p class="sheet-header__description">' +
         formatMultiline(character.description) +
@@ -313,10 +431,14 @@ function renderCharacter(id) {
       namedListHtml(character.other, "title", "content")
     );
 
-  const nav =
-    '<nav class="sheet-nav" aria-label="Navegación entre personajes">' +
+  const topNav =
+    '<nav class="sheet-nav sheet-nav--top" aria-label="Navegación de ficha">' +
     '<a class="btn btn--ghost" href="#/">← Galería</a>' +
-    '<div class="sheet-nav__pager">' +
+    sheetsToolbarHtml(character) +
+    "</nav>";
+
+  const bottomNav =
+    '<nav class="sheet-nav sheet-nav--bottom" aria-label="Personajes anterior y siguiente">' +
     '<a class="btn btn--ghost" href="#/character/' +
     encodeURIComponent(prev.id) +
     '">← ' +
@@ -327,17 +449,16 @@ function renderCharacter(id) {
     '">' +
     escapeHtml(next.name) +
     " →</a>" +
-    "</div>" +
     "</nav>";
 
   app.innerHTML =
     '<article class="character-sheet">' +
-    nav +
+    topNav +
     header +
     '<div class="sheet-body">' +
     body +
     "</div>" +
-    nav +
+    bottomNav +
     "</article>";
 
   bindPortraitFallbacks(app);

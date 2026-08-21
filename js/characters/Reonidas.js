@@ -68,7 +68,11 @@ const Reonidas = {
       "title": "Alineación (narrativa)",
       "content": "Neutral bueno, con inclinación hacia neutral, según el documento."
     }
-  ]
+  ],
+  "campaign": null,
+  "status": null,
+  "year": null,
+  "sheet": null
 };
 
 export default Object.freeze(Reonidas);

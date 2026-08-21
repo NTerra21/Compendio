@@ -96,7 +96,11 @@ const Noctharis = {
       "title": "Nota sobre la campaña",
       "content": "Parte del material documentado es un resumen en primera persona de campaña (mundo feérico, Tortuga, Scramshak, etc.). Se conserva como memoria de hechos vividos, no como ficha mecánica."
     }
-  ]
+  ],
+  "campaign": null,
+  "status": null,
+  "year": null,
+  "sheet": null
 };
 
 export default Object.freeze(Noctharis);

@@ -81,7 +81,11 @@ const Thalorin = {
       "title": "Alineación (narrativa)",
       "content": "Neutral bueno, según el documento de personaje."
     }
-  ]
+  ],
+  "campaign": null,
+  "status": null,
+  "year": null,
+  "sheet": null
 };
 
 export default Object.freeze(Thalorin);

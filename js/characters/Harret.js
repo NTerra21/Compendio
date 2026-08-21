@@ -65,7 +65,11 @@ const Harret = {
       "description": "A los 188 años salva a un dracónico blanco y comienzan a viajar juntos."
     }
   ],
-  "other": []
+  "other": [],
+  "campaign": null,
+  "status": null,
+  "year": null,
+  "sheet": null
 };
 
 export default Object.freeze(Harret);
