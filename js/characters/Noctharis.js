@@ -16,7 +16,7 @@ const Noctharis = {
   "id": "noctharis",
   "name": "Noctharis",
   "epithet": "Eco de la Noche",
-  "image": "images/Noctharis.png",
+  "image": "img/Noctharis.png",
   "tagline": "Un cazador de la oscuridad forjado por la pérdida...",
   "description": "Paladín de la Venganza de Shar. No siempre se llamó así: fue hijo y hermaño hasta que una noche sin luna arrasó su aldea. Hoy es un cazador frío y metódico al servicio de la Dama Oscura.",
   "background": [
