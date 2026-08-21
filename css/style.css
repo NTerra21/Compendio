@@ -15,6 +15,17 @@
   --font-display: "Cinzel", "Palatino Linotype", Palatino, serif;
   --font-body: "Source Serif 4", "Georgia", serif;
   --max: 1100px;
+
+  /* Tema activo del personaje (valores por defecto = galeria).
+     Los personajes los sobrescriben desde su .js via app.js */
+  --character-background:
+    radial-gradient(ellipse at top, rgba(201, 168, 108, 0.12), transparent 55%),
+    linear-gradient(160deg, #241c17 0%, #1a1511 45%, #12100e 100%);
+  --character-sheet: linear-gradient(180deg, #efe6d6 0%, #eadfcb 100%);
+  --character-primary: #1c1814;
+  --character-secondary: #3a322a;
+  --character-accent: #b08d4a;
+  --character-text: #3a322a;
 }
 
 *,
@@ -30,14 +41,13 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  color: var(--ink);
+  color: var(--parchment);
   font-family: var(--font-body);
   font-size: 1.05rem;
   line-height: 1.7;
-  background:
-    radial-gradient(ellipse at top, rgba(201, 168, 108, 0.12), transparent 55%),
-    linear-gradient(160deg, #241c17 0%, #1a1511 45%, #12100e 100%);
+  background: var(--character-background);
   background-attachment: fixed;
+  transition: background 0.25s ease;
 }
 
 img {
@@ -81,7 +91,7 @@ a {
   font-size: 0.95rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold-soft);
+  color: var(--character-accent, var(--gold-soft));
 }
 
 .site-brand__sub {
@@ -196,7 +206,7 @@ a {
   display: flex;
   flex-direction: column;
   background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 100%);
-  border: 1px solid rgba(90, 70, 40, 0.25);
+  border: 1px solid var(--card-accent, rgba(90, 70, 40, 0.25));
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 12px 28px var(--shadow);
@@ -207,7 +217,7 @@ a {
 .char-card:hover,
 .char-card:focus-visible {
   transform: translateY(-4px);
-  border-color: var(--gold);
+  border-color: var(--card-accent, var(--gold));
   box-shadow: 0 18px 36px rgba(20, 14, 10, 0.45);
   outline: none;
 }
@@ -316,8 +326,9 @@ a {
 
 /* Ficha */
 .character-sheet {
-  background: linear-gradient(180deg, var(--parchment) 0%, #eadfcb 100%);
-  border: 1px solid rgba(90, 70, 40, 0.28);
+  background: var(--character-sheet);
+  color: var(--character-text);
+  border: 1px solid color-mix(in srgb, var(--character-accent) 40%, transparent);
   border-radius: calc(var(--radius) + 4px);
   box-shadow: 0 18px 40px var(--shadow);
   overflow: hidden;
@@ -359,20 +370,20 @@ a {
   gap: 0.35rem;
   padding: 0.45rem 0.85rem;
   border-radius: 999px;
-  border: 1px solid rgba(90, 70, 40, 0.35);
-  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid color-mix(in srgb, var(--character-accent) 45%, transparent);
+  background: color-mix(in srgb, var(--character-primary) 8%, transparent);
   font-family: var(--font-display);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--character-primary);
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .btn:hover,
 .btn:focus-visible {
-  background: rgba(255, 255, 255, 0.7);
-  border-color: var(--gold);
+  background: color-mix(in srgb, var(--character-accent) 22%, transparent);
+  border-color: var(--character-accent);
   outline: none;
 }
 
@@ -381,15 +392,15 @@ a {
 }
 
 .btn--sheet {
-  background: rgba(176, 141, 74, 0.18);
-  border-color: rgba(176, 141, 74, 0.55);
-  color: var(--leather);
+  background: color-mix(in srgb, var(--character-accent) 22%, transparent);
+  border-color: var(--character-accent);
+  color: var(--character-primary);
 }
 
 .btn--sheet:hover,
 .btn--sheet:focus-visible {
-  background: rgba(176, 141, 74, 0.3);
-  border-color: var(--gold);
+  background: color-mix(in srgb, var(--character-accent) 35%, transparent);
+  border-color: var(--character-accent);
 }
 
 .sheet-header__meta {
@@ -403,10 +414,10 @@ a {
   display: inline-flex;
   padding: 0.2rem 0.55rem;
   border-radius: 999px;
-  border: 1px solid rgba(90, 70, 40, 0.2);
-  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid color-mix(in srgb, var(--character-accent) 35%, transparent);
+  background: color-mix(in srgb, var(--character-primary) 8%, transparent);
   font-size: 0.78rem;
-  color: var(--ink-soft);
+  color: var(--character-secondary);
 }
 
 .sheet-header {
@@ -432,7 +443,7 @@ a {
   font-size: 0.7rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--character-accent);
 }
 
 .sheet-header__name {
@@ -440,18 +451,18 @@ a {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   line-height: 1.15;
-  color: var(--ink);
+  color: var(--character-primary);
 }
 
 .sheet-header__epithet {
   margin: 0.4rem 0 0;
   font-style: italic;
-  color: var(--gold);
+  color: var(--character-accent);
 }
 
 .sheet-header__description {
   margin: 1rem 0 0;
-  color: var(--ink-soft);
+  color: var(--character-secondary);
   max-width: 42rem;
 }
 
@@ -474,7 +485,7 @@ a {
   font-size: 1rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--leather);
+  color: var(--character-primary);
   position: relative;
   padding-bottom: 0.45rem;
 }
@@ -486,11 +497,11 @@ a {
   bottom: 0;
   width: 3.5rem;
   height: 2px;
-  background: linear-gradient(90deg, var(--gold), transparent);
+  background: linear-gradient(90deg, var(--character-accent), transparent);
 }
 
 .sheet-section__body {
-  color: var(--ink-soft);
+  color: var(--character-text);
 }
 
 .prose {
@@ -515,8 +526,8 @@ a {
 
 .detail-list--named > li {
   padding: 0.7rem 0.85rem;
-  border-left: 3px solid var(--gold);
-  background: rgba(255, 255, 255, 0.28);
+  border-left: 3px solid var(--character-accent);
+  background: color-mix(in srgb, var(--character-primary) 6%, transparent);
   border-radius: 0 8px 8px 0;
 }
 
@@ -525,7 +536,7 @@ a {
   font-family: var(--font-display);
   font-size: 0.95rem;
   letter-spacing: 0.03em;
-  color: var(--ink);
+  color: var(--character-primary);
   margin-bottom: 0.25rem;
 }
 

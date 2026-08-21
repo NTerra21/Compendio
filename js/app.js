@@ -13,6 +13,66 @@ const navCurrent = document.getElementById("nav-current");
 /** Lista viva de personajes cargados (solo logica de app). */
 let CHARACTERS = [];
 
+/**
+ * Tema por defecto (galeria y personajes sin theme completo).
+ * No contiene colores de un personaje concreto.
+ */
+const DEFAULT_THEME = Object.freeze({
+  name: "Archivo",
+  background:
+    "radial-gradient(ellipse at top, rgba(201, 168, 108, 0.12), transparent 55%), linear-gradient(160deg, #241c17 0%, #1a1511 45%, #12100e 100%)",
+  sheet: "linear-gradient(180deg, #efe6d6 0%, #eadfcb 100%)",
+  primary: "#1c1814",
+  secondary: "#3a322a",
+  accent: "#b08d4a",
+  text: "#3a322a"
+});
+
+const THEME_CSS_VARS = {
+  background: "--character-background",
+  sheet: "--character-sheet",
+  primary: "--character-primary",
+  secondary: "--character-secondary",
+  accent: "--character-accent",
+  text: "--character-text"
+};
+
+/**
+ * Fusiona theme del personaje con valores por defecto.
+ * Acepta cualquier string CSS (hex, gradient, etc.).
+ */
+function resolveTheme(character) {
+  const raw =
+    character && character.theme && typeof character.theme === "object"
+      ? character.theme
+      : {};
+  const resolved = {};
+  Object.keys(DEFAULT_THEME).forEach(function (key) {
+    if (key === "name") {
+      resolved.name = hasText(raw.name) ? raw.name.trim() : DEFAULT_THEME.name;
+      return;
+    }
+    resolved[key] = hasText(raw[key]) ? String(raw[key]).trim() : DEFAULT_THEME[key];
+  });
+  return resolved;
+}
+
+/** Aplica CSS custom properties al documento (sin hardcodear personajes). */
+function applyTheme(theme) {
+  const root = document.documentElement;
+  Object.keys(THEME_CSS_VARS).forEach(function (key) {
+    root.style.setProperty(THEME_CSS_VARS[key], theme[key]);
+  });
+  if (theme.name) {
+    root.setAttribute("data-theme-name", theme.name);
+  }
+}
+
+function resetTheme() {
+  applyTheme(DEFAULT_THEME);
+  document.documentElement.removeAttribute("data-theme-name");
+}
+
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -138,24 +198,30 @@ function sheetsToolbarHtml(character) {
 
 function metadataHtml(character) {
   const bits = [];
-  if (hasText(character.campaign)) {
+
+  function metaText(value) {
+    if (value == null || value === "") return "";
+    if (typeof value === "number" && !Number.isNaN(value)) return String(value);
+    if (typeof value === "string" && value.trim()) return value.trim();
+    return "";
+  }
+
+  const campaign = metaText(character.campaign);
+  const status = metaText(character.status);
+  const year = metaText(character.year);
+
+  if (campaign) {
     bits.push(
-      '<span class="meta-chip">Campaña: ' +
-        escapeHtml(character.campaign) +
-        "</span>"
+      '<span class="meta-chip">Campaña: ' + escapeHtml(campaign) + "</span>"
     );
   }
-  if (hasText(character.status)) {
+  if (status) {
     bits.push(
-      '<span class="meta-chip">Estado: ' +
-        escapeHtml(character.status) +
-        "</span>"
+      '<span class="meta-chip">Estado: ' + escapeHtml(status) + "</span>"
     );
   }
-  if (hasText(character.year)) {
-    bits.push(
-      '<span class="meta-chip">Año: ' + escapeHtml(character.year) + "</span>"
-    );
+  if (year) {
+    bits.push('<span class="meta-chip">Año: ' + escapeHtml(year) + "</span>");
   }
   if (!bits.length) return "";
   return '<div class="sheet-header__meta">' + bits.join("") + "</div>";
@@ -255,13 +321,19 @@ function cardHtml(character) {
     .filter(hasText)
     .join(" ")
     .toLowerCase();
+  const theme = resolveTheme(character);
+  const accentStyle = hasText(theme.accent)
+    ? ' style="--card-accent: ' + escapeHtml(theme.accent) + ';"'
+    : "";
 
   return (
     '<a class="char-card" href="#/character/' +
     encodeURIComponent(character.id) +
     '" data-search="' +
     escapeHtml(searchBlob) +
-    '" aria-label="Abrir ficha de ' +
+    '"' +
+    accentStyle +
+    ' aria-label="Abrir ficha de ' +
     escapeHtml(character.name) +
     '">' +
     '<div class="char-card__portrait">' +
@@ -312,6 +384,7 @@ function bindGallerySearch(root) {
 }
 
 function renderGallery() {
+  resetTheme();
   setNavLabel("Galería");
   document.title = "Compendio de Aventureros";
 
@@ -350,6 +423,7 @@ function renderCharacter(id) {
   const character = index >= 0 ? CHARACTERS[index] : null;
 
   if (!character) {
+    resetTheme();
     setNavLabel("No encontrado");
     document.title = "Personaje no encontrado";
     app.innerHTML =
@@ -360,6 +434,8 @@ function renderCharacter(id) {
       "</section>";
     return;
   }
+
+  applyTheme(resolveTheme(character));
 
   const prev = CHARACTERS[(index - 1 + CHARACTERS.length) % CHARACTERS.length];
   const next = CHARACTERS[(index + 1) % CHARACTERS.length];
@@ -487,6 +563,7 @@ function showBootError(message) {
 }
 
 async function boot() {
+  resetTheme();
   try {
     CHARACTERS = await loadCharacters();
   } catch (error) {

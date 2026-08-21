@@ -1,6 +1,14 @@
 /**
  * Datos de Noctharis.
  * Edita SOLO este archivo para modificar a este personaje.
+ *
+ * Secciones principales en este archivo:
+ * 1) Identidad e historia
+ * 2) Personalidad / vinculos / defectos
+ * 3) Relaciones y eventos
+ * 4) Metadatos y ficha (sheet)
+ * 5) TEMA VISUAL / COLORES (al final)
+ *
  * No hace falta tocar HTML, CSS ni app.js.
  */
 
@@ -100,7 +108,27 @@ const Noctharis = {
   "campaign": null,
   "status": null,
   "year": null,
-  "sheet": null
+  "sheet": null,
+
+  // ============================================================
+  // TEMA VISUAL / COLORES
+  // ============================================================
+  theme: {
+    // Nombre descriptivo del tema.
+    name: "Eco de la Noche",
+    // Fondo general de la pagina al abrir este personaje.
+    background: "linear-gradient(135deg, #0a0a12, #1a1028)",
+    // Fondo de la hoja/panel principal.
+    sheet: "linear-gradient(160deg, #16121f 0%, #0e0c14 100%)",
+    // Titulos y elementos importantes.
+    primary: "#ebe6f4",
+    // Texto secundario y detalles.
+    secondary: "#a090b8",
+    // Bordes, botones, separadores, acentos.
+    accent: "#7b5ea7",
+    // Color principal del texto del cuerpo.
+    text: "#d8d4e0"
+  }
 };
 
 export default Object.freeze(Noctharis);

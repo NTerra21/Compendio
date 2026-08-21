@@ -1,6 +1,14 @@
 /**
  * Datos de Harret.
  * Edita SOLO este archivo para modificar a este personaje.
+ *
+ * Secciones principales en este archivo:
+ * 1) Identidad e historia
+ * 2) Personalidad / vinculos / defectos
+ * 3) Relaciones y eventos
+ * 4) Metadatos y ficha (sheet)
+ * 5) TEMA VISUAL / COLORES (al final)
+ *
  * No hace falta tocar HTML, CSS ni app.js.
  */
 
@@ -69,7 +77,27 @@ const Harret = {
   "campaign": "Gigantes",
   "status": "Cancelada",
   "year": 2024,
-  "sheet": null
+  "sheet": null,
+
+  // ============================================================
+  // TEMA VISUAL / COLORES
+  // ============================================================
+  theme: {
+    // Nombre descriptivo del tema.
+    name: "Olivo Sagrado",
+    // Fondo general de la pagina al abrir este personaje.
+    background: "linear-gradient(135deg, #0f1a12, #1e3a24)",
+    // Fondo de la hoja/panel principal.
+    sheet: "linear-gradient(160deg, #e8efe4 0%, #d5e0d0 100%)",
+    // Titulos y elementos importantes.
+    primary: "#1a2e1c",
+    // Texto secundario y detalles.
+    secondary: "#3d5a40",
+    // Bordes, botones, separadores, acentos.
+    accent: "#c4a35a",
+    // Color principal del texto del cuerpo.
+    text: "#2a3a2c"
+  }
 };
 
 export default Object.freeze(Harret);

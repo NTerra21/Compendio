@@ -2,12 +2,15 @@
  * Registro de personajes.
  *
  * Para AGREGAR un personaje:
- * 1. Crea js/characters/TuPersonaje.js (puedes copiar Kana.js como plantilla)
- * 2. Agrega una entrada en CHARACTER_MODULES (abajo)
+ * 1. Copia js/characters/_TEMPLATE.js y renombralo (ej: Lucian.js)
+ * 2. Completa los datos y el tema visual
+ * 3. Agrega una entrada en CHARACTER_MODULES (abajo)
+ *
+ * NO registres _TEMPLATE.js: es solo plantilla.
  *
  * Para ELIMINAR un personaje:
  * 1. Quita su entrada de CHARACTER_MODULES
- * 2. (Opcional) Borra su archivo .js y su imagen en images/
+ * 2. (Opcional) Borra su archivo .js, imagen y PDF
  *
  * Este archivo NO debe contener trasfondos ni textos narrativos.
  */

@@ -1,6 +1,14 @@
 /**
  * Datos de Reonidas.
  * Edita SOLO este archivo para modificar a este personaje.
+ *
+ * Secciones principales en este archivo:
+ * 1) Identidad e historia
+ * 2) Personalidad / vinculos / defectos
+ * 3) Relaciones y eventos
+ * 4) Metadatos y ficha (sheet)
+ * 5) TEMA VISUAL / COLORES (al final)
+ *
  * No hace falta tocar HTML, CSS ni app.js.
  */
 
@@ -72,7 +80,27 @@ const Reonidas = {
   "campaign": null,
   "status": null,
   "year": null,
-  "sheet": null
+  "sheet": null,
+
+  // ============================================================
+  // TEMA VISUAL / COLORES
+  // ============================================================
+  theme: {
+    // Nombre descriptivo del tema.
+    name: "Hierro y Honor",
+    // Fondo general de la pagina al abrir este personaje.
+    background: "linear-gradient(135deg, #171717, #3a2a18)",
+    // Fondo de la hoja/panel principal.
+    sheet: "linear-gradient(160deg, #2a2824 0%, #1e1c18 100%)",
+    // Titulos y elementos importantes.
+    primary: "#ebe6dc",
+    // Texto secundario y detalles.
+    secondary: "#a09080",
+    // Bordes, botones, separadores, acentos.
+    accent: "#c4a574",
+    // Color principal del texto del cuerpo.
+    text: "#ddd8d0"
+  }
 };
 
 export default Object.freeze(Reonidas);

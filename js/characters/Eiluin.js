@@ -1,6 +1,14 @@
 /**
  * Datos de Eiluin.
  * Edita SOLO este archivo para modificar a este personaje.
+ *
+ * Secciones principales en este archivo:
+ * 1) Identidad e historia
+ * 2) Personalidad / vinculos / defectos
+ * 3) Relaciones y eventos
+ * 4) Metadatos y ficha (sheet)
+ * 5) TEMA VISUAL / COLORES (al final)
+ *
  * No hace falta tocar HTML, CSS ni app.js.
  */
 
@@ -84,7 +92,27 @@ const Eiluin = {
   "campaign": null,
   "status": null,
   "year": null,
-  "sheet": null
+  "sheet": null,
+
+  // ============================================================
+  // TEMA VISUAL / COLORES
+  // ============================================================
+  theme: {
+    // Nombre descriptivo del tema.
+    name: "Viento Ancestral",
+    // Fondo general de la pagina al abrir este personaje.
+    background: "linear-gradient(135deg, #0d1a22, #1a3a48)",
+    // Fondo de la hoja/panel principal.
+    sheet: "linear-gradient(160deg, #e8f2f4 0%, #d0e4ea 100%)",
+    // Titulos y elementos importantes.
+    primary: "#1a3038",
+    // Texto secundario y detalles.
+    secondary: "#3a5860",
+    // Bordes, botones, separadores, acentos.
+    accent: "#4a9bb0",
+    // Color principal del texto del cuerpo.
+    text: "#243840"
+  }
 };
 
 export default Object.freeze(Eiluin);

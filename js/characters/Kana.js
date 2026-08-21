@@ -1,6 +1,14 @@
 /**
  * Datos de Kana.
  * Edita SOLO este archivo para modificar a este personaje.
+ *
+ * Secciones principales en este archivo:
+ * 1) Identidad e historia
+ * 2) Personalidad / vinculos / defectos
+ * 3) Relaciones y eventos
+ * 4) Metadatos y ficha (sheet)
+ * 5) TEMA VISUAL / COLORES (al final)
+ *
  * No hace falta tocar HTML, CSS ni app.js.
  */
 
@@ -76,7 +84,28 @@ const Kana = {
   "campaign": "Mundo Misterioso",
   "status": "Avtiva",
   "year": 2026,
-  "sheet": { type: "link", url: "https://www.dndbeyond.com/characters/168184800", label: "Ver ficha" }
+  "sheet": { type: "link", url: "https://www.dndbeyond.com/characters/168184800", label: "Ver ficha" },
+
+  // ============================================================
+  // TEMA VISUAL / COLORES
+  // ============================================================
+  // Valores CSS validos (hex, rgb, linear-gradient, etc.).
+  theme: {
+    // Nombre descriptivo del tema.
+    name: "Llama Violeta",
+    // Fondo general de la pagina al abrir este personaje.
+    background: "linear-gradient(135deg, #160d20, #6b1638)",
+    // Fondo de la hoja/panel principal.
+    sheet: "linear-gradient(160deg, #2a1528 0%, #1a1018 100%)",
+    // Titulos y elementos importantes.
+    primary: "#f3e9f7",
+    // Texto secundario y detalles.
+    secondary: "#c9a8c4",
+    // Bordes, botones, separadores, acentos.
+    accent: "#e85d4c",
+    // Color principal del texto del cuerpo.
+    text: "#e8dfe8"
+  }
 };
 
 export default Object.freeze(Kana);
