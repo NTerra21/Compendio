@@ -24,14 +24,14 @@
   </header>
 
   <main id="app" class="site-main" aria-live="polite">
-    <!-- El contenido se genera desde js/characters.js y js/app.js -->
+    <!-- Contenido generado por js/app.js desde js/characters/ -->
   </main>
 
   <footer class="site-footer">
-    Archivo personal · Edita personajes en <code>js/characters.js</code>
+    Archivo personal · Edita cada personaje en <code>js/characters/</code>
   </footer>
 
-  <script src="js/characters.js"></script>
-  <script src="js/app.js"></script>
+  <!-- type="module" permite un archivo por personaje con import/export -->
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

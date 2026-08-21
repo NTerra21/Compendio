@@ -1,97 +1,118 @@
 # Compendio de Aventureros
 
-Archivo personal de personajes de D&D (historia y narrativa). No necesita servidor ni instalacion.
+Archivo personal de personajes de D&D (historia y narrativa).
 
 ## Como abrir la pagina
 
-1. Abre la carpeta del proyecto.
-2. Haz doble clic en `index.html`, **o**
-3. Arrastra `index.html` a tu navegador.
+Los personajes usan **modulos ES** (`import` / `export`). Por seguridad del navegador, **no abras `index.html` con doble clic** (protocolo `file://`): fallara la carga.
 
-Tambien puedes abrirla desde Cursor / VS Code con "Open with Live Server" si lo tienes.
+Opciones simples:
+
+1. **Live Server** en Cursor / VS Code (recomendado).
+2. Desde la carpeta del proyecto, en terminal:
+
+```bash
+py -m http.server 8080
+```
+
+Luego abre: http://localhost:8080
+
+## Arquitectura (que tocar para cada cosa)
+
+| Quiero... | Archivo |
+|-----------|---------|
+| Cambiar la historia de Kana | `js/characters/Kana.js` |
+| Cambiar la historia de Harret | `js/characters/Harret.js` |
+| Cambiar imagen de Kana | `images/Kana.png` |
+| Agregar / quitar un personaje del listado | `js/characters/index.js` |
+| Cambiar navegacion / galeria / fichas | `js/app.js` |
+| Cambiar colores y tipografia | `css/style.css` |
+| Cambiar titulo fijo del sitio | `index.html` |
 
 ## Estructura
 
 ```text
 /
-├── index.html          ← pagina principal (casi no se toca)
-├── css/style.css       ← estilos
-├── js/characters.js    ← DATOS de los personajes (edita aqui)
-├── js/app.js           ← logica (galeria, fichas, navegacion)
-├── images/             ← retratos (Kana.png, Harret.png, ...)
-├── img/                ← copia original de arte (referencia)
-└── PJs dnd/            ← documentos Word fuente
+├── index.html
+├── css/style.css
+├── js/
+│   ├── app.js
+│   └── characters/
+│       ├── index.js      ← registro (lista de personajes)
+│       ├── Kana.js
+│       ├── Harret.js
+│       ├── Noctharis.js
+│       ├── Eiluin.js
+│       ├── Thalorin.js
+│       └── Reonidas.js
+└── images/
+    ├── Kana.png
+    ├── Harret.png
+    └── ...
 ```
 
-## Donde colocar las imagenes
+## Modificar un personaje
 
-1. Coloca el archivo en la carpeta `images/`.
-2. Usa el mismo nombre que indica el campo `image` del personaje.
+Ejemplo, Kana:
 
-Ejemplos:
+```text
+js/characters/Kana.js
+```
 
-- `images/Kana.png`
-- `images/Harret.png`
-- `images/Noctharis.png`
+Guarda y recarga la pagina. No hace falta tocar HTML.
 
-Si la imagen no existe, la pagina muestra un placeholder elegante. **No se rompe el diseno.**
+## Cambiar su imagen
 
-Para cambiar el archivo usado por un personaje, edita solo la linea `image` en `js/characters.js`.
+1. Coloca el archivo en `images/` con el nombre que indica el campo `image`.
+2. Ejemplo: `images/Kana.png`
 
-## Como agregar un personaje
+Si la imagen no existe, se muestra un placeholder. La pagina no se rompe.
 
-1. Abre `js/characters.js`.
-2. Copia un bloque `{ ... }` existente.
-3. Pegalo al final del arreglo `CHARACTERS` (antes del `];`).
-4. Cambia `id`, `name`, `image` y el resto de textos.
-5. Guarda y recarga la pagina.
+## Agregar un personaje nuevo
 
-El `id` debe ser unico y en minusculas sin espacios (ejemplo: `"nuevo-pj"`).
+1. Crea `js/characters/NuevoPersonaje.js` (copia `Kana.js` como plantilla).
+2. Cambia `id`, `name`, `image` y el resto de textos.
+3. Asegurate de terminar con:
 
-La tarjeta y la ficha aparecen solas. No hace falta tocar HTML.
+```js
+export default Object.freeze(NuevoPersonaje);
+```
 
-## Como modificar el trasfondo
+4. Registra el archivo en `js/characters/index.js` dentro de `CHARACTER_MODULES`:
 
-1. Abre `js/characters.js`.
-2. Busca el personaje por `name` o `id`.
-3. Edita los campos que quieras (`background`, `personality`, `ideals`, etc.).
-4. Guarda y recarga.
+```js
+{ file: "./NuevoPersonaje.js", label: "NuevoPersonaje" }
+```
 
-No edites `index.html` para cambiar textos de personajes.
+5. (Opcional) Coloca `images/NuevoPersonaje.png`.
 
-## Como eliminar un personaje
+No toques `app.js` ni `index.html` para esto.
 
-1. Abre `js/characters.js`.
-2. Borra todo el objeto `{ ... }` de ese personaje (incluye la coma sobrante si queda).
-3. Guarda y recarga.
+## Eliminar un personaje
 
-Opcional: borra tambien su imagen en `images/`.
+1. En `js/characters/index.js`, quita su linea de `CHARACTER_MODULES`.
+2. (Opcional) Borra `js/characters/EsePersonaje.js`.
+3. (Opcional) Borra `images/EsePersonaje.png`.
 
-## Que archivo modificar para cada cosa
+## Aislamiento
 
-| Quiero... | Archivo |
-|-----------|---------|
-| Agregar / editar / borrar un personaje | `js/characters.js` |
-| Cambiar o poner una imagen | carpeta `images/` (+ campo `image` si cambia el nombre) |
-| Cambiar colores o tipografia | `css/style.css` |
-| Cambiar como funciona la navegacion | `js/app.js` |
-| Cambiar el titulo fijo de la pestana/header | `index.html` |
+Cada personaje vive en su propio archivo. Si uno falla al cargar:
+
+- Veras un aviso en consola.
+- Ese personaje puede mostrar una ficha de error.
+- **El resto de la galeria sigue funcionando.**
 
 ## Navegacion
 
-- Inicio / galeria: `#/`
-- Ficha de un personaje: `#/character/kana` (usa el `id`)
-- En cada ficha puedes volver a la galeria o ir al anterior / siguiente.
+- Galeria: `#/`
+- Ficha: `#/character/kana` (usa el `id` del personaje)
+- En cada ficha: volver a galeria, anterior y siguiente.
 
-Funciona abriendo el archivo en local, sin backend.
-
-## Personajes incluidos (desde los documentos)
+## Personajes actuales
 
 - Kana
 - Harret
 - Noctharis
 - Eiluin
-- Thalorin Nairel
+- Thalorin
 - Reonidas
-
-Fuente: archivos en `PJs dnd/`. El contenido mecanico de reglas (hechizos, dados, etc.) se dejo fuera a proposito; el foco es narrativo.
