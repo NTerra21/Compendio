@@ -48,7 +48,7 @@ const Kana = {
   "importantEvents": [
     {
       "title": "El orfanato",
-      "description": "Llego hacía los cinco años. Aprendido a sonreír en las despedidas y a no pedir que nadie se quedara."
+      "description": "Llego a los cinco años. Aprendido a sonreír en las despedidas y a no pedir que nadie se quedara."
     },
     {
       "title": "Primeras chispas y rechazo",
@@ -76,7 +76,7 @@ const Kana = {
   "campaign": "Mundo Misterioso",
   "status": "Avtiva",
   "year": 2026,
-  "sheet": "https://www.dndbeyond.com/characters/168184800"
+  "sheet": { type: "link", url: "https://www.dndbeyond.com/characters/168184800", label: "Ver ficha" }
 };
 
 export default Object.freeze(Kana);
