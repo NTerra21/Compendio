@@ -406,7 +406,7 @@ function renderGallery() {
     '<p class="gallery-hero__lead">Un registro narrativo de quienes caminaron contigo. Elige un nombre para leer su historia.</p>' +
     '<label class="gallery-search">' +
     '<span class="gallery-search__icon" aria-hidden="true">🔍</span>' +
-    '<input id="gallery-search" type="search" placeholder="Buscar personaje..." autocomplete="off" />' +
+//    '<input id="gallery-search" type="search" placeholder="Buscar personaje..." autocomplete="off" />' +
     "</label>" +
     "</section>" +
     '<section class="gallery-grid" aria-label="Galería de personajes">' +
