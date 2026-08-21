@@ -404,10 +404,10 @@ function renderGallery() {
     '<p class="gallery-hero__kicker">Archivo personal</p>' +
     '<h1 class="gallery-hero__title">Compendio de Aventureros</h1>' +
     '<p class="gallery-hero__lead">Un registro narrativo de quienes caminaron contigo. Elige un nombre para leer su historia.</p>' +
-    '<label class="gallery-search">' +
-    '<span class="gallery-search__icon" aria-hidden="true">🔍</span>' +
+//    '<label class="gallery-search">' +
+//    '<span class="gallery-search__icon" aria-hidden="true">🔍</span>' +
 //    '<input id="gallery-search" type="search" placeholder="Buscar personaje..." autocomplete="off" />' +
-    "</label>" +
+//    "</label>" +
     "</section>" +
     '<section class="gallery-grid" aria-label="Galería de personajes">' +
     cards +
