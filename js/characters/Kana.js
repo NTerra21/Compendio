@@ -96,7 +96,7 @@ const Kana = {
     // Fondo general de la pagina al abrir este personaje.
     background: "linear-gradient(135deg, #160d20, #6b1638)",
     // Fondo de la hoja/panel principal.
-    sheet: "linear-gradient(160deg, #2a1528 0%, #1a1018 100%)",
+    sheet: "linear-gradient(to bottom, #302044 0%, #493044 45%, #6b302c 100%)",
     // Titulos y elementos importantes.
     primary: "#f3e9f7",
     // Texto secundario y detalles.
