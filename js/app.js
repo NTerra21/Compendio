@@ -169,7 +169,7 @@ function normalizeSheets(character) {
 }
 
 function sheetButtonHtml(entry) {
-  const label = hasText(entry.label) ? entry.label : "Ver ficha";
+  const label = hasText(entry.label) ? entry.label : "Ficha";
   const isExternal = entry.type === "link";
   const relAttrs = isExternal
     ? ' target="_blank" rel="noopener noreferrer"'
@@ -356,7 +356,7 @@ function cardHtml(character) {
     // Si NO tiene link: Solo "Ver trasfondo" alineado a la derecha
     ctaHtml = 
       '<div style="display: flex; justify-content: flex-end; width: 100%; margin-top: auto; padding-top: 1rem;">' +
-        '<span class="char-card__cta" style="margin-top: 0;">Ver trasfondo <span aria-hidden="true">→</span></span>' +
+        '<span class="char-card__cta" style="margin-top: 0;">Trasfondo <span aria-hidden="true">→</span></span>' +
       '</div>';
   }
 
