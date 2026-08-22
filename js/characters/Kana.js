@@ -25,7 +25,7 @@ const Kana = {
     "El orfanato no era cruel: había comida, techo y cuidado. Allí hizo amigos y compartió promesas infantiles. Con los años descubrió que las personas no permanecen: una amiga encontraba familia y se marchaba, luego otra, y otra más. Siempre se alegraba por ellas —de verdad—, pero tras cada despedida el lugar parecía más grande y más frío. Aprendió a sonreír al despedirse, a esconder el vacío y a decidir que, si un día volvía a quedarse sola, tendría que seguir caminando de todos modos.",
     "La magia apareció siendo joven: una vela que se encendía al enfadarse, una taza demasiado caliente en las manos, el fuego de la chimenea respondiendo a su cercanía, y una vez en que se quemó y el dolor tardó en llegar. Cuando las coincidencias ya no bastaron, buscó a un mago. Este halló magia en ella... poca, débil, irregular, \"como una pequeña brasa bajo demasiadas cenizas\". Le habló de aprender, y del precio. Sin dinero para maestro ni academia, aprendió sola.",
     "Durante años recogió conocimiento donde pudo: libros prestados, páginas copiadas, conversaciones en bibliotecas y tabernas. Entendía la teoría, pero al intentar reproducir hechizos ajenos no sucedía nada. Empezó a creer que aquella pequeña magia era todo lo que había en ella. Dejó de buscar solo en libros y trabajo en lo que pudo: cargas, caravanas, exploraciones menores y ruinas con objetos olvidados. Las ruinas le gustaban: cada objeto abandonado parecía guardar una historia. Empezó a prestar atención a rumores sobre reliquias capaces de despertar poderes dormidos.",
-    "En una ruina ya saqueada encontró una pared que no encajaba. Tras escombros, una habitación intacta: polvo, madera podrida y un viejo anillo. Al tomarla sintió un calor vivo. Escuchó una voz: \"Quién eres?\". Luego una risa. Así apareció Efreeti.",
+    "En una ruina ya saqueada encontró una pared que no encajaba. Tras escombros, una habitación intacta: polvo, madera podrida y un viejo amuleto. Al tomarla sintió un calor vivo. Escuchó una voz: \"Quién eres?\". Luego una risa. Así apareció Efreeti.",
     "Durante mucho tiempo pensó que él había despertado su poder. Ahora sabe que no: Efreeti no le dio magia nueva. Le mostró que había pasado años copiando magia ajena, buscando fuera lo que ya llevaba dentro. La primera llama que controló fue pequeña e inestable, apenas un destello en la palma... pero era suya.",
     "Desde entonces aprendieron juntos: el conocía lo que ella no habría descubierto sola; ella podía hacer en este mundo lo que él no. Empezaron como intercambio de conocimientos y ayuda; con el tiempo discutieron, se corrigieron y se acostumbraron el uno al otro. No siempre se llevan bien, pero su presencia se volvió algo que ella espera encontrar cada día.",
     "Ya no camina solo para asegurarse de que puede seguir si vuelve a quedarse sola. Camina para descubrir hasta dónde puede llevar esa llama que durante tantos años pensó que no tenía."
@@ -37,7 +37,7 @@ const Kana = {
     "Descubrimiento: \"Durante mucho tiempo quise saber qué era. Ahora quiero descubrir qué y quien puedo llegar a ser.\""
   ],
   "bonds": [
-    "Efreeti, vinculado al anillo antigua hallada en ruinas: de socio a compañero cotidiano; discuten, se corrigen y siguen el uno al lado del otro.",
+    "Efreeti, vinculado al amuleto antigua hallada en ruinas: de socio a compañero cotidiano; discuten, se corrigen y siguen el uno al lado del otro.",
     "Las amistades del orfanato y el recuerdo de las despedidas que marcaron su forma de querer y de quedarse."
   ],
   "flaws": [
@@ -50,7 +50,7 @@ const Kana = {
   "relationships": [
     {
       "name": "Efreeti",
-      "description": "Compañero vinculado al anillo. Al principio, intercambio de conocimientos por ayuda. Puede ser arrogante e insoportable; ella, igual de terca. No siempre se llevan bien, pero su presencia se volvió cotidiana y esperada."
+      "description": "Compañero vinculado al amuleto. Al principio, intercambio de conocimientos por ayuda. Puede ser arrogante e insoportable; ella, igual de terca. No siempre se llevan bien, pero su presencia se volvió cotidiana y esperada."
     }
   ],
   "importantEvents": [
@@ -68,7 +68,7 @@ const Kana = {
     },
     {
       "title": "Encuentro con Efreeti",
-      "description": "Hallazgo del anillo en una habitación intacta. Él la obligo a escuchar la llama que ya llevaba dentro."
+      "description": "Hallazgo del amuleto en una habitación intacta. Él la obligo a escuchar la llama que ya llevaba dentro."
     },
     {
       "title": "El camino presente",
