@@ -356,7 +356,7 @@ function cardHtml(character) {
     escapeHtml(searchBlob) +
     '"' +
     accentStyle +
-    ' aria-label="Abrir perfil de ' +
+    ' aria-label="Ver Trasfondo de ' +
     escapeHtml(character.name) +
     '">' +
     '<div class="char-card__portrait">' +
