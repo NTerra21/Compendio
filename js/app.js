@@ -225,7 +225,7 @@ function metadataHtml(character) {
     bits.push('<span class="meta-chip">Año: ' + escapeHtml(year) + "</span>");
   }
   if (player) {
-    bits.push('<span class="meta-chip">Año: ' + escapeHtml(player) + "</span>");
+    bits.push('<span class="meta-chip">Jugador: ' + escapeHtml(player) + "</span>");
   }
   if (!bits.length) return "";
   return '<div class="sheet-header__meta">' + bits.join("") + "</div>";
