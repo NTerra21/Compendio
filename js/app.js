@@ -330,25 +330,37 @@ function cardHtml(character) {
     ? ' style="--card-accent: ' + escapeHtml(theme.accent) + ';"'
     : "";
 
-  // 1. Revisamos si el personaje tiene una ficha externa (como el caso de Kana)
+  // 1. Revisamos si el personaje tiene una ficha externa
   const sheets = normalizeSheets(character);
   const hasLink = sheets.length > 0;
 
-  // 2. Preparamos el HTML de la zona inferior (el recuadro rojo de tu imagen)
+  // 2. Preparamos el HTML de la zona inferior con diseño de columnas (flex)
   let ctaHtml = "";
   if (hasLink) {
     const linkUrl = escapeHtml(sheets[0].url);
-    const linkLabel = escapeHtml(sheets[0].label || "Abrir hoja");
-    // Usamos un span con un evento que abre el link y "frena" el clic para que no abra el perfil
-    ctaHtml = '<span class="char-card__cta" style="position: relative; z-index: 2; cursor: pointer;" ' +
-              'onclick="window.open(\'' + linkUrl + '\', \'_blank\'); event.preventDefault(); event.stopPropagation();">' +
-              linkLabel + ' <span aria-hidden="true">↗</span></span>';
+    const linkLabel = escapeHtml(sheets[0].label || "Ficha");
+    
+    // Si tiene link: Botón a la izquierda y "Trasfondo" a la derecha
+    ctaHtml = 
+      '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: auto; padding-top: 1rem;">' +
+        // El Botón
+        '<span style="position: relative; z-index: 2; cursor: pointer; background: var(--card-accent, #b08d4a); color: #fff; padding: 0.4em 0.8em; border-radius: 4px; font-size: 0.85em; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;" ' +
+        'onclick="window.open(\'' + linkUrl + '\', \'_blank\'); event.preventDefault(); event.stopPropagation();" ' +
+        'onmouseover="this.style.opacity=\'0.85\'" onmouseout="this.style.opacity=\'1\'">' +
+        linkLabel + ' <span aria-hidden="true" style="font-weight: normal;">↗</span></span>' +
+        
+        // El texto normal
+        '<span class="char-card__cta" style="margin-top: 0;">Trasfondo <span aria-hidden="true">→</span></span>' +
+      '</div>';
   } else {
-    // Si no tiene link externo, mantenemos el texto original sin eventos extra
-    ctaHtml = '<span class="char-card__cta">Ver Trasfondo <span aria-hidden="true">→</span></span>';
+    // Si NO tiene link: Solo "Ver trasfondo" alineado a la derecha
+    ctaHtml = 
+      '<div style="display: flex; justify-content: flex-end; width: 100%; margin-top: auto; padding-top: 1rem;">' +
+        '<span class="char-card__cta" style="margin-top: 0;">Ver trasfondo <span aria-hidden="true">→</span></span>' +
+      '</div>';
   }
 
-  // 3. Devolvemos la tarjeta entera. El href principal siempre lleva a la vista detallada
+  // 3. Devolvemos la tarjeta armada
   return (
     '<a class="char-card" href="#/character/' +
     encodeURIComponent(character.id) +
@@ -356,13 +368,13 @@ function cardHtml(character) {
     escapeHtml(searchBlob) +
     '"' +
     accentStyle +
-    ' aria-label="Ver Trasfondo de ' +
+    ' aria-label="Abrir perfil de ' +
     escapeHtml(character.name) +
     '">' +
     '<div class="char-card__portrait">' +
     portraitHtml(character, "char-card__img") +
     "</div>" +
-    '<div class="char-card__body">' +
+    '<div class="char-card__body" style="display: flex; flex-direction: column; height: 100%;">' +
     '<h2 class="char-card__name">' +
     escapeHtml(character.name) +
     "</h2>" +
@@ -377,7 +389,7 @@ function cardHtml(character) {
         escapeHtml(character.tagline) +
         "</p>"
       : "") +
-    // Insertamos el botón interactivo al final de la tarjeta
+    // Insertamos la fila de botones al fondo
     ctaHtml +
     "</div>" +
     "</a>"
