@@ -108,6 +108,7 @@ const Noctharis = {
   "campaign": "Piratas",
   "status": "Vivo",
   "year": "2025-2026",
+  "player":"Terra",
   "sheet": { type: "link", url: "https://www.dndbeyond.com/characters/150031732", label: "Ver ficha" },
 
   // ============================================================

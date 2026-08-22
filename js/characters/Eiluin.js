@@ -92,6 +92,7 @@ const Eiluin = {
   "campaign": "Corazon de Dralox",
   "status": "Muerto",
   "year": "2025-2026",
+  "player":"Terra",
   "sheet": null,
 
   // ============================================================

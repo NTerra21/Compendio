@@ -84,6 +84,7 @@ const Kana = {
   "campaign": "Mundo Misterioso",
   "status": "Activa",
   "year": 2026,
+  "player":"Terra",
   "sheet": { type: "link", url: "https://www.dndbeyond.com/characters/168184800", label: "Ver ficha" },
 
   // ============================================================

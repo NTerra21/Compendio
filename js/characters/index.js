@@ -88,6 +88,7 @@ function brokenCharacter(label, reason) {
     campaign: null,
     status: null,
     year: null,
+    player: null,
     sheet: null,
     __loadError: true
   });

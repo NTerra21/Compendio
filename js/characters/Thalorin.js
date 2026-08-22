@@ -93,6 +93,7 @@ const Thalorin = {
   "campaign": "Gigantes",
   "status": "Muerto",
   "year": "2024",
+  "player":"Terra",
   "sheet": null,
 
   // ============================================================

@@ -209,6 +209,7 @@ function metadataHtml(character) {
   const campaign = metaText(character.campaign);
   const status = metaText(character.status);
   const year = metaText(character.year);
+  const player = metaText(character.player);
 
   if (campaign) {
     bits.push(
@@ -222,6 +223,9 @@ function metadataHtml(character) {
   }
   if (year) {
     bits.push('<span class="meta-chip">Año: ' + escapeHtml(year) + "</span>");
+  }
+  if (player) {
+    bits.push('<span class="meta-chip">Año: ' + escapeHtml(player) + "</span>");
   }
   if (!bits.length) return "";
   return '<div class="sheet-header__meta">' + bits.join("") + "</div>";

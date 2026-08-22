@@ -77,6 +77,7 @@ const Harret = {
   "campaign": "Gigantes",
   "status": "Cancelada",
   "year": "2024-2025",
+  "player":"Terra",
   "sheet": null,
 
   // ============================================================

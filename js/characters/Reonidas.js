@@ -80,6 +80,7 @@ const Reonidas = {
   "campaign": "El Relojero",
   "status": "Activo",
   "year": "2025-206",
+  "player":"Terra",
   "sheet": { type: "link", url: "https://www.dndbeyond.com/characters/128724086", label: "Ver ficha" },
 
   // ============================================================
