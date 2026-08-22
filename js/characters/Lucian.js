@@ -14,7 +14,7 @@ const Lucian = {
 
   "id": "lucian",
 
-  "name": "Lucian Mallory",
+  "name": "Lucian",
 
   "epithet": "Guerrero - Maestro de Batalla",
 
