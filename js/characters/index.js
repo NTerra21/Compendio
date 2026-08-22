@@ -23,7 +23,7 @@ const CHARACTER_MODULES = [
   { file: "./Eiluin.js", label: "Eiluin" },
   { file: "./Thalorin.js", label: "Thalorin" },
   { file: "./Reonidas.js", label: "Reonidas" },
-  { file: "./Lucian.js", label: "Lucian" }
+  { file: "./Lucian.js", label: "Lucian" },
 ];
 
 /**
