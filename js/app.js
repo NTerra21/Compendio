@@ -334,29 +334,26 @@ function cardHtml(character) {
   const sheets = normalizeSheets(character);
   const hasLink = sheets.length > 0;
 
-  // 2. Preparamos el HTML de la zona inferior con diseño de columnas (flex)
+  // 2. Preparamos el HTML con estilo sutil y textos exactos
   let ctaHtml = "";
   if (hasLink) {
     const linkUrl = escapeHtml(sheets[0].url);
-    const linkLabel = escapeHtml(sheets[0].label || "Ficha");
     
-    // Si tiene link: Botón a la izquierda y "Trasfondo" a la derecha
     ctaHtml = 
-      '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: auto; padding-top: 1rem;">' +
-        // El Botón
-        '<span style="position: relative; z-index: 2; cursor: pointer; background: var(--card-accent, #b08d4a); color: #fff; padding: 0.4em 0.8em; border-radius: 4px; font-size: 0.85em; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;" ' +
-        'onclick="window.open(\'' + linkUrl + '\', \'_blank\'); event.preventDefault(); event.stopPropagation();" ' +
-        'onmouseover="this.style.opacity=\'0.85\'" onmouseout="this.style.opacity=\'1\'">' +
-        linkLabel + ' <span aria-hidden="true" style="font-weight: normal;">↗</span></span>' +
+      '<div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem;">' +
+        // Botón FICHA: sutil, enmarcado y con padding
+        '<span class="char-card__cta" style="margin-top: 0; position: relative; z-index: 2; cursor: pointer; padding: 0.35em 0.6em; border: 1px solid currentColor; border-radius: 4px;" ' +
+        'onclick="window.open(\'' + linkUrl + '\', \'_blank\'); event.preventDefault(); event.stopPropagation();">' +
+        'FICHA <span aria-hidden="true">↗</span></span>' +
         
-        // El texto normal
-        '<span class="char-card__cta" style="margin-top: 0;">Trasfondo <span aria-hidden="true">→</span></span>' +
+        // Texto TRASFONDO normal
+        '<span class="char-card__cta" style="margin-top: 0;">TRASFONDO <span aria-hidden="true">→</span></span>' +
       '</div>';
   } else {
-    // Si NO tiene link: Solo "Ver trasfondo" alineado a la derecha
+    // Si NO tiene link: Solo "TRASFONDO"
     ctaHtml = 
-      '<div style="display: flex; justify-content: flex-end; width: 100%; margin-top: auto; padding-top: 1rem;">' +
-        '<span class="char-card__cta" style="margin-top: 0;">Trasfondo <span aria-hidden="true">→</span></span>' +
+      '<div style="display: flex; justify-content: flex-end; margin-top: auto; padding-top: 1rem;">' +
+        '<span class="char-card__cta" style="margin-top: 0;">TRASFONDO <span aria-hidden="true">→</span></span>' +
       '</div>';
   }
 
@@ -389,7 +386,7 @@ function cardHtml(character) {
         escapeHtml(character.tagline) +
         "</p>"
       : "") +
-    // Insertamos la fila de botones al fondo
+    // Insertamos la fila de textos
     ctaHtml +
     "</div>" +
     "</a>"
