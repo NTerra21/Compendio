@@ -22,7 +22,8 @@ const CHARACTER_MODULES = [
   { file: "./Noctharis.js", label: "Noctharis" },
   { file: "./Eiluin.js", label: "Eiluin" },
   { file: "./Thalorin.js", label: "Thalorin" },
-  { file: "./Reonidas.js", label: "Reonidas" }
+  { file: "./Reonidas.js", label: "Reonidas" },
+  { file: "./Lucian.js", label: "Lucian" }
 ];
 
 /**
