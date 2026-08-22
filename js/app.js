@@ -345,7 +345,7 @@ function cardHtml(character) {
               linkLabel + ' <span aria-hidden="true">↗</span></span>';
   } else {
     // Si no tiene link externo, mantenemos el texto original sin eventos extra
-    ctaHtml = '<span class="char-card__cta">Ver perfil <span aria-hidden="true">→</span></span>';
+    ctaHtml = '<span class="char-card__cta">Ver Trasfondo <span aria-hidden="true">→</span></span>';
   }
 
   // 3. Devolvemos la tarjeta entera. El href principal siempre lleva a la vista detallada
