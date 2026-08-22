@@ -330,6 +330,25 @@ function cardHtml(character) {
     ? ' style="--card-accent: ' + escapeHtml(theme.accent) + ';"'
     : "";
 
+  // 1. Revisamos si el personaje tiene una ficha externa (como el caso de Kana)
+  const sheets = normalizeSheets(character);
+  const hasLink = sheets.length > 0;
+
+  // 2. Preparamos el HTML de la zona inferior (el recuadro rojo de tu imagen)
+  let ctaHtml = "";
+  if (hasLink) {
+    const linkUrl = escapeHtml(sheets[0].url);
+    const linkLabel = escapeHtml(sheets[0].label || "Abrir hoja");
+    // Usamos un span con un evento que abre el link y "frena" el clic para que no abra el perfil
+    ctaHtml = '<span class="char-card__cta" style="position: relative; z-index: 2; cursor: pointer;" ' +
+              'onclick="window.open(\'' + linkUrl + '\', \'_blank\'); event.preventDefault(); event.stopPropagation();">' +
+              linkLabel + ' <span aria-hidden="true">↗</span></span>';
+  } else {
+    // Si no tiene link externo, mantenemos el texto original sin eventos extra
+    ctaHtml = '<span class="char-card__cta">Ver perfil <span aria-hidden="true">→</span></span>';
+  }
+
+  // 3. Devolvemos la tarjeta entera. El href principal siempre lleva a la vista detallada
   return (
     '<a class="char-card" href="#/character/' +
     encodeURIComponent(character.id) +
@@ -337,7 +356,7 @@ function cardHtml(character) {
     escapeHtml(searchBlob) +
     '"' +
     accentStyle +
-    ' aria-label="Abrir ficha de ' +
+    ' aria-label="Abrir perfil de ' +
     escapeHtml(character.name) +
     '">' +
     '<div class="char-card__portrait">' +
@@ -358,7 +377,8 @@ function cardHtml(character) {
         escapeHtml(character.tagline) +
         "</p>"
       : "") +
-    '<span class="char-card__cta">Abrir ficha <span aria-hidden="true">→</span></span>' +
+    // Insertamos el botón interactivo al final de la tarjeta
+    ctaHtml +
     "</div>" +
     "</a>"
   );
