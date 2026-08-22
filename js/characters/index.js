@@ -19,11 +19,11 @@
 const CHARACTER_MODULES = [
   { file: "./Kana.js", label: "Kana" },
   { file: "./Harret.js", label: "Harret" },
+  { file: "./Thalorin.js", label: "Thalorin" },
   { file: "./Noctharis.js", label: "Noctharis" },
   { file: "./Eiluin.js", label: "Eiluin" },
-  { file: "./Thalorin.js", label: "Thalorin" },
-  { file: "./Reonidas.js", label: "Reonidas" },
   { file: "./Lucian.js", label: "Lucian" },
+  { file: "./Reonidas.js", label: "Reonidas" }
 ];
 
 /**
