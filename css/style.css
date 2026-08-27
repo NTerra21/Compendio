@@ -619,6 +619,19 @@ a {
   background-color: var(--leather-mid);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
   z-index: 5;
+  cursor: pointer;
+  
+  /* Animación suave y punto de anclaje (para que crezca hacia arriba y a la izquierda) */
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+  transform-origin: bottom right; 
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.pet-avatar:hover,
+.pet-avatar-large:hover {
+  transform: scale(2.5); /* Esto la hace 2.5 veces más grande. Puedes ajustar el número */
+  box-shadow: -4px -4px 20px rgba(0, 0, 0, 0.8);
+  z-index: 20; /* Asegura que quede por encima de todos los textos */
 }
 
 /* Tamaño en la galería */
