@@ -17,7 +17,7 @@ const Eiluin = {
   "name": "Eiluin",
   "epithet": "Explorador del linaje antiguo",
   "image": "img/Eiluin.png",
-  "petImage": "img/Dragoncito2.png",
+  "petImage": "img/Dragoncito2.jpg",
   "tagline": "Un joven owlin y el eco de un dragon que camina a su lado...",
   "description": "Owlin de diecisiete años, explorador e hijo de gente sencilla. Lleva en la sangre un eco mas fuerte del linaje de los mellizos de los primeros dragones, y un compañero espiritual que crecio con el.",
   "background": [
@@ -105,7 +105,7 @@ const Eiluin = {
     // Fondo general de la pagina al abrir este personaje.
     background: "linear-gradient(135deg, #0d1a22, #1a3a48)",
     // Fondo de la hoja/panel principal.
-    sheet: "linear-gradient(160deg, #5dee69 0%, #b0e5f5 100%)",
+    sheet: "linear-gradient(160deg, #79f483 0%, #b0e5f5 100%)",
     // Titulos y elementos importantes.
     primary: "#1a3038",
     // Texto secundario y detalles.
