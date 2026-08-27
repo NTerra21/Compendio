@@ -368,8 +368,9 @@ function cardHtml(character) {
     ' aria-label="Abrir perfil de ' +
     escapeHtml(character.name) +
     '">' +
-    '<div class="char-card__portrait">' +
+    '<div class="char-card__portrait" style="position: relative;">' +
     portraitHtml(character, "char-card__img") +
+    (character.petImage ? '<img src="' + escapeHtml(character.petImage) + '" class="pet-avatar" alt="Mascota" />' : '') +
     "</div>" +
     '<div class="char-card__body" style="display: flex; flex-direction: column; height: 100%;">' +
     '<h2 class="char-card__name">' +
@@ -478,8 +479,9 @@ function renderCharacter(id) {
 
   const header =
     '<header class="sheet-header">' +
-    '<div class="sheet-header__portrait">' +
+    '<div class="sheet-header__portrait" style="position: relative;">' +
     portraitHtml(character, "sheet-header__img") +
+    (character.petImage ? '<img src="' + escapeHtml(character.petImage) + '" class="pet-avatar-large" alt="Mascota" />' : '') +
     "</div>" +
     '<div class="sheet-header__text">' +
     '<p class="sheet-header__index">Registro ' +

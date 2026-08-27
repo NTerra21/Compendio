@@ -17,6 +17,7 @@ const Eiluin = {
   "name": "Eiluin",
   "epithet": "Explorador del linaje antiguo",
   "image": "images/Eiluin.png",
+  "petImage": "images/dragon-espiritual.png",
   "tagline": "Un joven owlin y el eco de un dragon que camina a su lado...",
   "description": "Owlin de diecisiete años, explorador e hijo de gente sencilla. Lleva en la sangre un eco mas fuerte del linaje de los mellizos de los primeros dragones, y un compañero espiritual que crecio con el.",
   "background": [
@@ -46,7 +47,7 @@ const Eiluin = {
   "relationships": [
     {
       "name": "Dragon espiritual",
-      "description": "<img src='img/Dragoncito2_sinFondo.png' class='companion-image' alt='Dragón de Eiluin'><br>Compañero nacido del vínculo despertado. Reflejos del mismo eco: no es dueno ni propiedad. Puede protegerlo; Eiluin haria lo mismo por el."
+      "description": "Compañero nacido del vínculo despertado. Reflejos del mismo eco: no es dueno ni propiedad. Puede protegerlo; Eiluin haria lo mismo por el."
     },
     {
       "name": "Kaelric",
