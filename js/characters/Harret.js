@@ -16,7 +16,7 @@ const Harret = {
   "id": "harret",
   "name": "Harret",
   "epithet": "Alto Elfo del Olivo",
-  "image": "images/Harret.png",
+  "image": "img/Harret.png",
   "tagline": "Un elfo que salio a buscar la cura de un árbol maldito...",
   "description": "Alto elfo marcado por la guerra contra los demonios que asolaron el Gran Árbol de la Vida. Parte de una expedición de voluntarios, perdió compañeros a lo largo de décadas y sigue buscando cómo restaurar El Olivo.",
   "background": [
