@@ -46,7 +46,7 @@ const Eiluin = {
   "relationships": [
     {
       "name": "Dragon espiritual",
-      "description": "Compañero nacido del vínculo despertado. Reflejos del mismo eco: no es dueno ni propiedad. Puede protegerlo; Eiluin haria lo mismo por el."
+      "description": "<img src='img/Dragoncito2_sinFondo.png' class='companion-image' alt='Dragón de Eiluin'><br>Compañero nacido del vínculo despertado. Reflejos del mismo eco: no es dueno ni propiedad. Puede protegerlo; Eiluin haria lo mismo por el."
     },
     {
       "name": "Kaelric",
