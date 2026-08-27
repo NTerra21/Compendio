@@ -621,31 +621,32 @@ a {
   z-index: 5;
   cursor: pointer;
   
-  /* Animación suave y punto de anclaje (para que crezca hacia arriba y a la izquierda) */
+  /* Animación de zoom al pasar el mouse */
   transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
   transform-origin: bottom right; 
 }
 
-/* Efecto al pasar el mouse (Hover) */
 .pet-avatar:hover,
 .pet-avatar-large:hover {
-  transform: scale(2.5); /* Esto la hace 2.5 veces más grande. Puedes ajustar el número */
+  transform: scale(2.5);
   box-shadow: -4px -4px 20px rgba(0, 0, 0, 0.8);
-  z-index: 20; /* Asegura que quede por encima de todos los textos */
+  z-index: 20;
 }
 
-/* Tamaño en la galería */
+/* Tamaño y anillo en la galería */
 .pet-avatar {
   width: 46px;
   height: 46px;
-  border: 2px solid var(--parchment);
+  /* 1.5px de grosor para que sea fino. Usa el color de acento del personaje */
+  border: 1.5px solid var(--card-accent, var(--character-accent));
 }
 
-/* Tamaño dentro de la ficha principal */
+/* Tamaño y anillo dentro de la ficha principal */
 .pet-avatar-large {
   width: 64px;
   height: 64px;
   bottom: 12px;
   right: 12px;
-  border: 3px solid var(--character-sheet);
+  /* 1.5px de grosor para que sea fino. Usa el color principal/acento del personaje */
+  border: 1.5px solid var(--character-accent);
 }
