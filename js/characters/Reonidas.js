@@ -16,7 +16,7 @@ const Reonidas = {
   "id": "reonidas",
   "name": "Reonidas",
   "epithet": "Samurái errante",
-  "image": "images/Reonidas.png",
+  "image": "img/Reonidas_sinFondo.png",
   "tagline": "Un leonin que carga el honor de un clan caido...",
   "description": "Leonin guerrero, samurái errante. Sobrevivio a la caída de su clan y viaja para volverse mas fuerte, redimir el honor familiar y algún día volver con los suyos.",
   "background": [

@@ -16,7 +16,7 @@ const Kana = {
   "id": "kana",
   "name": "Kana",
   "epithet": "La que buscaba una llama",
-  "image": "images/Kana.png",
+  "image": "img/Kana_sinFondo.png",
   "tagline": "Una joven que buscaba una llama que nunca pudo recordar...",
   "description": "Hay personas que nacen con un destino claro, y otras que pasan la vida entera buscándolo. Kana pertenece a estas últimas. Sin recuerdos de sus padres ni un hogar permanente, aprendió a avanzar en soledad hasta descubrir que la pequeña chispa que llevaba dentro solo necesitaba ser comprendida.",
   "appearance": "Humana de unos 1,62 m, complexión delgada y ligeramente atlética, piel clara y facciones suaves. Su cabello blanco o gris plateado llega hasta la cintura; suele llevarlo en una coleta desordenada. Viste cuero oscuro, botas de viaje y equipo práctico de exploradora. Sus ojos violetas se tiñen de rojo carmesí al canalizar grandes candidades de magia",

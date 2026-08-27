@@ -16,7 +16,7 @@ const Thalorin = {
   "id": "thalorin",
   "name": "Thalorin Nairel",
   "epithet": "Guardián del amanecer",
-  "image": "images/Thalorin.png",
+  "image": "img/Thalorin.png",
   "tagline": "Un paladín marcado por la guerra que aún busca esperanza...",
   "description": "Alto elfo de la Casa Nairel, primo de Harret. Guerrero y paladín que protegio civiles en la guerra contra los demonios del Olivo. Sobrevivio a la aniquilación de su peloton y carga cicatrices visibles e invisibles.",
   "appearance": "Masculino, 240 años, alto elfo, 195 cm, robusto y musculoso. Pelo morocho y lacio; piel de tono rubio clasico con calidez; cicatrices en el cuerpo. Ojos celestes que se vuelven dorados al usar magia.",
