@@ -105,7 +105,7 @@ const Eiluin = {
     // Fondo general de la pagina al abrir este personaje.
     background: "linear-gradient(135deg, #0d1a22, #1a3a48)",
     // Fondo de la hoja/panel principal.
-    sheet: "linear-gradient(160deg, #79f483 0%, #b0e5f5 100%)",
+    sheet: "linear-gradient(160deg, #9bfaa3 0%, #b0e5f5 100%)",
     // Titulos y elementos importantes.
     primary: "#1a3038",
     // Texto secundario y detalles.
