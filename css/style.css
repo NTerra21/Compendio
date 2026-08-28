@@ -689,3 +689,49 @@ a {
 .tab-content.active {
   display: block;
 }
+
+/* --- VENTANA EMERGENTE DE STATS (MODAL) --- */
+.stats-modal {
+  background: var(--character-sheet, #efe6d6);
+  color: var(--character-text);
+  border: 1px solid var(--character-accent);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  padding: 1.5rem 2rem;
+  max-width: 400px;
+  width: 90%;
+}
+.stats-modal::backdrop {
+  background: rgba(10, 8, 6, 0.7);
+  backdrop-filter: blur(4px);
+}
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--character-accent);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+.stats-header h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  color: var(--character-primary);
+}
+.close-modal {
+  background: transparent;
+  border: none;
+  color: var(--character-primary);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+.stat-item strong {
+  color: var(--character-primary);
+  font-family: var(--font-display);
+}

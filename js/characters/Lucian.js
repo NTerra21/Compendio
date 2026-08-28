@@ -35,7 +35,7 @@ const Lucian = {
     class: "Guerrero",
     subclass: "Maestro de Batalla",
     multiclass: "", // Déjalo vacío si no tiene
-    level: "1 al 5"
+    level: "Inicial 3 - Actual 6"
   },
 
   // ============================================================
