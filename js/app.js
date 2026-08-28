@@ -562,15 +562,63 @@ function renderCharacter(id) {
     " →</a>" +
     "</nav>";
 
+  // 1. GENERAR PESTAÑAS SI EXISTE LA BITÁCORA
+  let tabsNavHtml = "";
+  let journalContentHtml = "";
+  
+  // Por defecto, envolvemos el trasfondo en un div que actuará como la pestaña activa
+  let bodyWrapperStart = '<div id="tab-general" class="tab-content active sheet-body">';
+  let bodyWrapperEnd = '</div>';
+
+  if (hasList(character.journal)) {
+    // Si hay bitácora, creamos la barra navegadora de pestañas
+    tabsNavHtml = 
+      '<div class="sheet-tabs">' +
+        '<button class="sheet-tab-btn active" data-target="tab-general">Trasfondo</button>' +
+        '<button class="sheet-tab-btn" data-target="tab-journal">Bitácora de Viaje</button>' +
+      '</div>';
+      
+    // Y creamos el contenedor exclusivo para la bitácora (oculto por defecto)
+    journalContentHtml = 
+      '<div id="tab-journal" class="tab-content sheet-body">' +
+        sectionHtml("Registro de Viaje", namedListHtml(character.journal, "title", "content")) +
+      '</div>';
+  } else {
+    // Si el personaje NO tiene bitácora registrada, cargamos el cuerpo normal sin clases ocultas
+    bodyWrapperStart = '<div class="sheet-body">';
+  }
+
+  // 2. INYECTAR TODO AL DOM
   app.innerHTML =
     '<article class="character-sheet">' +
     topNav +
     header +
-    '<div class="sheet-body">' +
-    body +
-    "</div>" +
+    tabsNavHtml +         // Barra de botones (Trasfondo / Bitácora)
+    bodyWrapperStart +    // Abre el contenedor del trasfondo
+    body +                // Todo el contenido normal del personaje
+    bodyWrapperEnd +      // Cierra el contenedor del trasfondo
+    journalContentHtml +  // Inyecta el contenedor de la bitácora
     bottomNav +
-    "</article>";
+    "</article>" + 
+    (typeof statsModalHtml !== 'undefined' ? statsModalHtml : ''); // El modal de Stats (si lo dejaste definido arriba)
+
+  // 3. ACTIVAR EL COMPORTAMIENTO DE LAS PESTAÑAS (CLICS)
+  const tabBtns = app.querySelectorAll(".sheet-tab-btn");
+  const tabContents = app.querySelectorAll(".tab-content");
+  
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      const targetId = this.getAttribute("data-target");
+      
+      // Apagamos todas las pestañas y contenidos
+      tabBtns.forEach(function(b) { b.classList.remove("active"); });
+      tabContents.forEach(function(c) { c.classList.remove("active"); });
+      
+      // Encendemos la que el usuario acaba de clickear
+      this.classList.add("active");
+      app.querySelector("#" + targetId).classList.add("active");
+    });
+  });
 
   bindPortraitFallbacks(app);
 }
