@@ -39,6 +39,15 @@ const Lucian = {
   },
 
   // ============================================================
+  // INVENTARIO (Pestaña extra)
+  // ============================================================
+  inventory: [
+    { title: "Espada Larga de Acero", content: "Un arma sencilla, bien cuidada, recién reparada en Tortuga." },
+    { title: "Anillo familiar", content: "Un recuerdo que le duele en la mano al empuñar el arma." },
+    { title: "Armadura de Adamantio", content: "Una gran armadura que consegui en Tortuga." }
+  ],
+
+  // ============================================================
   // BITÁCORA / DIARIO (Sección desplegable)
   // ============================================================
   // Cada item es un día o entrada. Si está vacío, no aparece la pestaña.
