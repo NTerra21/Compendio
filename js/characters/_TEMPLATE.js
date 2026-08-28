@@ -34,6 +34,10 @@ const NewCharacter = {
   // Si falta, se muestra un placeholder (la pagina no se rompe).
   image: "images/NuevoPersonaje.png",
 
+  // Ruta de la imagen de la mascota/acompañante (opcional). Aparecerá como un avatar circular.
+  // Ejemplo: "images/dragon.png"
+  petImage: "",
+
   // Frase corta de la tarjeta en la galeria.
   tagline: "",
 
@@ -42,6 +46,19 @@ const NewCharacter = {
 
   // Descripcion fisica / visual (opcional). Si esta vacia, no se muestra la seccion.
   appearance: "",
+
+  // ============================================================
+  // ESTADÍSTICAS (Abre en ventana emergente)
+  // ============================================================
+  // Si este objeto existe, aparecerá un botón "Ver Stats" en la barra superior.
+  // Puedes dejar campos en blanco ("") si no aplican.
+  stats: {
+    age: "",
+    class: "",
+    subclass: "",
+    multiclass: "",
+    level: ""
+  },
 
   // ============================================================
   // HISTORIA / TRASFONDO
@@ -84,6 +101,22 @@ const NewCharacter = {
   ],
 
   // ============================================================
+  // BITÁCORA / DIARIO (Pestaña extra)
+  // ============================================================
+  // Cada item es un día o entrada. Si el arreglo está vacío, no aparece la pestaña.
+  journal: [
+    // { title: "Día 1", content: "Llegamos a la ciudad. Dormí en una taberna cómoda." }
+  ],
+
+  // ============================================================
+  // INVENTARIO (Pestaña extra)
+  // ============================================================
+  // Lista de posesiones. Si el arreglo está vacío, no aparece la pestaña.
+  inventory: [
+    // { title: "Espada Larga", content: "Un arma sencilla y bien cuidada." }
+  ],
+
+  // ============================================================
   // OTRAS NOTAS
   // ============================================================
   other: [
@@ -93,12 +126,14 @@ const NewCharacter = {
   // ============================================================
   // METADATOS (opcionales)
   // ============================================================
-  // Si estan vacios o null, no se muestra nada en la interfaz.
+  // Si estan vacios o null, no se muestra nada en la interfaz. Aparecen como "chips" verdes.
   campaign: null,
   // Ejemplos: "Activo", "Retirado", "Muerto"
   status: null,
   // Puede ser string ("2024") o numero (2024)
   year: null,
+  // Nombre del jugador que lo interpreta
+  player: null,
 
   // ============================================================
   // FICHA DE D&D (opcional)
