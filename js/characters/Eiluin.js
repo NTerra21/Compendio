@@ -16,7 +16,7 @@ const Eiluin = {
   "id": "eiluin",
   "name": "Eiluin",
   "epithet": "Explorador del linaje antiguo",
-  "image": "img/Eiluin.png",
+  "image": "img/Eiluin_sinFondo.png",
   "petImage": "img/Dragoncito2.jpg",
   "tagline": "Un joven owlin y el eco de un dragon que camina a su lado...",
   "description": "Owlin de diecisiete años, explorador e hijo de gente sencilla. Lleva en la sangre un eco mas fuerte del linaje de los mellizos de los primeros dragones, y un compañero espiritual que crecio con el.",
