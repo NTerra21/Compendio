@@ -26,6 +26,28 @@ const Lucian = {
 
   "appearance": "Es un hombre inquieto con las manos y los pies (especialmente al estar sentado) y evita mirar a los ojos por mucho tiempo a menos que esté frustrado o enojado. Tiene un tatuaje de un búho en el brazo como recordatorio de su hermana y para no volver a 'dormirse' cuando alguien que ama está en peligro.",
 
+
+  // ============================================================
+  // ESTADÍSTICAS (Abre en ventana emergente)
+  // ============================================================
+  stats: {
+    age: "28",
+    class: "Guerrero",
+    subclass: "Maestro de Batalla",
+    multiclass: "", // Déjalo vacío si no tiene
+    level: "1 al 5"
+  },
+
+  // ============================================================
+  // BITÁCORA / DIARIO (Sección desplegable)
+  // ============================================================
+  // Cada item es un día o entrada. Si está vacío, no aparece la pestaña.
+  journal: [
+    { title: "Día 1", content: "Llegamos a Tortuga. Dormí en una taberna cómoda." },
+    { title: "Día 2", content: "Trabajé como tripulante. Hubo una niebla densa..." }
+  ],
+
+
   // ============================================================
   // HISTORIA / TRASFONDO
   // ============================================================
