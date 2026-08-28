@@ -589,29 +589,43 @@ function renderCharacter(id) {
     " →</a>" +
     "</nav>";
 
-  // 1. GENERAR PESTAÑAS SI EXISTE LA BITÁCORA
+  // 1. GENERAR PESTAÑAS (Trasfondo, Bitácora, Inventario)
   let tabsNavHtml = "";
-  let journalContentHtml = "";
+  let tabsContentHtml = ""; // Reemplaza a journalContentHtml para agrupar todas las pestañas extras
   
-  // Por defecto, envolvemos el trasfondo en un div que actuará como la pestaña activa
+  // Por defecto, el trasfondo es la pestaña activa
   let bodyWrapperStart = '<div id="tab-general" class="tab-content active sheet-body">';
   let bodyWrapperEnd = '</div>';
 
-  if (hasList(character.journal)) {
-    // Si hay bitácora, creamos la barra navegadora de pestañas
-    tabsNavHtml = 
-      '<div class="sheet-tabs">' +
-        '<button class="sheet-tab-btn active" data-target="tab-general">Trasfondo</button>' +
-        '<button class="sheet-tab-btn" data-target="tab-journal">Bitácora de Viaje</button>' +
-      '</div>';
-      
-    // Y creamos el contenedor exclusivo para la bitácora (oculto por defecto)
-    journalContentHtml = 
-      '<div id="tab-journal" class="tab-content sheet-body">' +
-        sectionHtml("Registro de Viaje", namedListHtml(character.journal, "title", "content")) +
-      '</div>';
+  const hasJournal = hasList(character.journal);
+  const hasInventory = hasList(character.inventory);
+
+  // Si tiene bitácora o inventario, armamos la barra de pestañas
+  if (hasJournal || hasInventory) {
+    tabsNavHtml += '<div class="sheet-tabs">';
+    tabsNavHtml += '<button class="sheet-tab-btn active" data-target="tab-general">Trasfondo</button>';
+    
+    // Si tiene Bitácora, sumamos su botón y su contenido oculto
+    if (hasJournal) {
+      tabsNavHtml += '<button class="sheet-tab-btn" data-target="tab-journal">Bitácora de Viaje</button>';
+      tabsContentHtml += 
+        '<div id="tab-journal" class="tab-content sheet-body">' +
+          sectionHtml("Registro de Viaje", namedListHtml(character.journal, "title", "content")) +
+        '</div>';
+    }
+    
+    // Si tiene Inventario, sumamos su botón y su contenido oculto
+    if (hasInventory) {
+      tabsNavHtml += '<button class="sheet-tab-btn" data-target="tab-inventory">Inventario</button>';
+      tabsContentHtml += 
+        '<div id="tab-inventory" class="tab-content sheet-body">' +
+          sectionHtml("Inventario y Posesiones", namedListHtml(character.inventory, "title", "content")) +
+        '</div>';
+    }
+    
+    tabsNavHtml += '</div>';
   } else {
-    // Si el personaje NO tiene bitácora registrada, cargamos el cuerpo normal sin clases ocultas
+    // Si no tiene ninguna de las dos extras, se carga normal
     bodyWrapperStart = '<div class="sheet-body">';
   }
 
@@ -620,14 +634,14 @@ function renderCharacter(id) {
     '<article class="character-sheet">' +
     topNav +
     header +
-    tabsNavHtml +         // Barra de botones (Trasfondo / Bitácora)
-    bodyWrapperStart +    // Abre el contenedor del trasfondo
-    body +                // Todo el contenido normal del personaje
-    bodyWrapperEnd +      // Cierra el contenedor del trasfondo
-    journalContentHtml +  // Inyecta el contenedor de la bitácora
+    tabsNavHtml +         
+    bodyWrapperStart +    
+    body +                
+    bodyWrapperEnd +      
+    tabsContentHtml +     // <--- AHORA SE LLAMA tabsContentHtml (Inyecta bitácora e inventario)
     bottomNav +
     "</article>" + 
-    (typeof statsModalHtml !== 'undefined' ? statsModalHtml : ''); // El modal de Stats (si lo dejaste definido arriba)
+    (typeof statsModalHtml !== 'undefined' ? statsModalHtml : '');
 
   // 3. ACTIVAR EL COMPORTAMIENTO DE LAS PESTAÑAS (CLICS)
   const tabBtns = app.querySelectorAll(".sheet-tab-btn");
