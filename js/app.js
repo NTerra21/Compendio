@@ -542,48 +542,10 @@ function renderCharacter(id) {
       namedListHtml(character.other, "title", "content")
     );
 
-  // 1. GENERAR EL BOTÓN DE STATS (Si el personaje tiene stats)
-  let statsBtnHtml = "";
-  let statsModalHtml = "";
-  
-  if (character.stats) {
-    statsBtnHtml = '<button class="btn" onclick="document.getElementById(\'stats-dialog\').showModal()">Ver Stats</button>';
-    
-    statsModalHtml = 
-      '<dialog id="stats-dialog" class="stats-modal">' +
-        '<div class="stats-header">' +
-          '<h2>Estadísticas</h2>' +
-          '<button class="close-modal" onclick="this.closest(\'dialog\').close()">X</button>' +
-        '</div>' +
-        '<div class="stats-grid">' +
-          (character.stats.age ? '<div class="stat-item"><strong>Edad:</strong> ' + escapeHtml(character.stats.age) + '</div>' : '') +
-          (character.stats.class ? '<div class="stat-item"><strong>Clase:</strong> ' + escapeHtml(character.stats.class) + '</div>' : '') +
-          (character.stats.subclass ? '<div class="stat-item"><strong>Subclase:</strong> ' + escapeHtml(character.stats.subclass) + '</div>' : '') +
-          (character.stats.multiclass ? '<div class="stat-item"><strong>Multiclase:</strong> ' + escapeHtml(character.stats.multiclass) + '</div>' : '') +
-          (character.stats.level ? '<div class="stat-item"><strong>Nivel:</strong> ' + escapeHtml(character.stats.level) + '</div>' : '') +
-        '</div>' +
-      '</dialog>';
-  }
-
-  // 2. GENERAR LA BITÁCORA (Si el personaje tiene bitácora)
-  let journalHtml = "";
-  if (hasList(character.journal)) {
-    journalHtml = 
-      '<details class="sheet-journal">' +
-        '<summary>📖 Bitácora de Viaje</summary>' +
-        '<div class="journal-content">' +
-          namedListHtml(character.journal, "title", "content") +
-        '</div>' +
-      '</details>';
-  }
-
   const topNav =
     '<nav class="sheet-nav sheet-nav--top" aria-label="Navegación de ficha">' +
     '<a class="btn btn--ghost" href="#/">← Galería</a>' +
-    '<div style="display: flex; gap: 0.5rem; margin-left: auto;">' +
-      statsBtnHtml +
-      sheetsToolbarHtml(character) +
-    '</div>' +
+    sheetsToolbarHtml(character) +
     "</nav>";
 
   const bottomNav =
@@ -606,14 +568,13 @@ function renderCharacter(id) {
     header +
     '<div class="sheet-body">' +
     body +
-    journalHtml + // <--- Aquí inyectamos la Bitácora al final del trasfondo
     "</div>" +
     bottomNav +
-    "</article>" + 
-    statsModalHtml; // <--- El modal se inyecta oculto fuera del artículo
+    "</article>";
 
   bindPortraitFallbacks(app);
 }
+
 function render() {
   const route = parseRoute();
   if (route.view === "character") {

@@ -652,86 +652,40 @@ a {
 }
 
 
-/* --- VENTANA EMERGENTE DE STATS (MODAL) --- */
-.stats-modal {
-  background: var(--character-sheet, #efe6d6);
-  color: var(--character-text);
-  border: 1px solid var(--character-accent);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  padding: 1.5rem 2rem;
-  max-width: 400px;
-  width: 90%;
-}
-.stats-modal::backdrop {
-  background: rgba(10, 8, 6, 0.7);
-  backdrop-filter: blur(4px);
-}
-.stats-header {
+/* --- PESTAÑAS (TABS) --- */
+.sheet-tabs {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--character-accent);
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  gap: 1.5rem;
+  padding: 0 1.4rem;
+  border-bottom: 1px solid rgba(90, 70, 40, 0.2);
+  background: color-mix(in srgb, var(--character-primary) 3%, transparent);
 }
-.stats-header h2 {
-  margin: 0;
-  font-family: var(--font-display);
-  color: var(--character-primary);
-}
-.close-modal {
-  background: transparent;
+.sheet-tab-btn {
+  background: none;
   border: none;
-  color: var(--character-primary);
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.5rem;
-}
-.stat-item strong {
-  color: var(--character-primary);
+  padding: 1rem 0;
   font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--character-secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+.sheet-tab-btn:hover {
+  opacity: 1;
+}
+.sheet-tab-btn.active {
+  color: var(--character-accent);
+  border-bottom: 2px solid var(--character-accent);
+  font-weight: bold;
+  opacity: 1;
 }
 
-/* --- BITÁCORA DESPLEGABLE (ACORDEÓN) --- */
-.sheet-journal {
-  margin-top: 2rem;
-  background: color-mix(in srgb, var(--character-primary) 4%, transparent);
-  border: 1px solid rgba(90, 70, 40, 0.2);
-  border-radius: 8px;
-  overflow: hidden;
-}
-.sheet-journal summary {
-  padding: 1rem 1.5rem;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: var(--character-primary);
-  background: color-mix(in srgb, var(--character-accent) 15%, transparent);
-  cursor: pointer;
-  list-style: none; /* Oculta la flecha por defecto en algunos navs */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.sheet-journal summary::-webkit-details-marker {
+/* Ocultar y mostrar el contenido de cada pestaña */
+.tab-content {
   display: none;
 }
-.sheet-journal summary::after {
-  content: "▼";
-  font-size: 0.9rem;
-  color: var(--character-accent);
-  transition: transform 0.3s ease;
-}
-.sheet-journal[open] summary::after {
-  transform: rotate(180deg);
-}
-.journal-content {
-  padding: 1.5rem;
-  border-top: 1px solid rgba(90, 70, 40, 0.2);
+.tab-content.active {
+  display: block;
 }
