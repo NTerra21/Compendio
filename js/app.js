@@ -589,53 +589,6 @@ function renderCharacter(id) {
     " →</a>" +
     "</nav>";
 
-  // 1. PRIMERO GENERAR EL BOTÓN DE STATS
-  let statsBtnHtml = "";
-  let statsModalHtml = "";
-  
-  if (character.stats) {
-    statsBtnHtml = '<button class="btn" onclick="document.getElementById(\'stats-dialog\').showModal()">Ver Stats</button>';
-    
-    statsModalHtml = 
-      '<dialog id="stats-dialog" class="stats-modal">' +
-        '<div class="stats-header">' +
-          '<h2>Estadísticas</h2>' +
-          '<button class="close-modal" onclick="this.closest(\'dialog\').close()">X</button>' +
-        '</div>' +
-        '<div class="stats-grid">' +
-          (character.stats.age ? '<div class="stat-item"><strong>Edad:</strong> ' + escapeHtml(character.stats.age) + '</div>' : '') +
-          (character.stats.class ? '<div class="stat-item"><strong>Clase:</strong> ' + escapeHtml(character.stats.class) + '</div>' : '') +
-          (character.stats.subclass ? '<div class="stat-item"><strong>Subclase:</strong> ' + escapeHtml(character.stats.subclass) + '</div>' : '') +
-          (character.stats.multiclass ? '<div class="stat-item"><strong>Multiclase:</strong> ' + escapeHtml(character.stats.multiclass) + '</div>' : '') +
-          (character.stats.level ? '<div class="stat-item"><strong>Nivel:</strong> ' + escapeHtml(character.stats.level) + '</div>' : '') +
-        '</div>' +
-      '</dialog>';
-  }
-
-  // 2. DESPUÉS CREAR LAS BARRAS DE NAVEGACIÓN (Usa statsBtnHtml arriba definido)
-  const topNav =
-    '<nav class="sheet-nav sheet-nav--top" aria-label="Navegación de ficha">' +
-    '<a class="btn btn--ghost" href="#/">← Galería</a>' +
-    '<div style="display: flex; gap: 0.5rem; margin-left: auto;">' +
-      statsBtnHtml +
-      sheetsToolbarHtml(character) +
-    '</div>' +
-    "</nav>";
-
-  const bottomNav =
-    '<nav class="sheet-nav sheet-nav--bottom" aria-label="Personajes anterior y siguiente">' +
-    '<a class="btn btn--ghost" href="#/character/' +
-    encodeURIComponent(prev.id) +
-    '">← ' +
-    escapeHtml(prev.name) +
-    "</a>" +
-    '<a class="btn btn--ghost" href="#/character/' +
-    encodeURIComponent(next.id) +
-    '">' +
-    escapeHtml(next.name) +
-    " →</a>" +
-    "</nav>";
-
   // 3. GENERAR PESTAÑAS (Trasfondo, Bitácora, Inventario)
   let tabsNavHtml = "";
   let tabsContentHtml = "";
