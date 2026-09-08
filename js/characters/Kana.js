@@ -112,7 +112,8 @@ const Kana = {
   // ============================================================
   // Cada item es un día o entrada. Si el arreglo está vacío, no aparece la pestaña.
   journal: [
-    { title: "Día 1", content: "Paso algo y nos despertamos en un lugar extraño a un Mundo Misterioso, ahi al recuperar la conciencia, un niño no estaba cuidando, al hablar un poco y entender nuestra cituacion, fuimos de camino al pueblo. \n En el camino, nos caimos en una mazmorra, ahi logramos salir por muy poco, yo apenas pude aguantar un ataque sorpresa de las criaturas. (los enemigos son molestos)"}
+    { title: "Día 1", content: "Paso algo y nos despertamos en un lugar extraño a un Mundo Misterioso, ahi al recuperar la conciencia, un niño no estaba cuidando, al hablar un poco y entender nuestra cituacion, fuimos de camino al pueblo. \n En el camino, nos caimos en una mazmorra, ahi logramos salir por muy poco, yo apenas pude aguantar un ataque sorpresa de las criaturas. (los enemigos son molestos)"},
+    { title: "Día 2", content: "Dscansamos y en un mundo nuevo y misterioso, fui con Bendor a explorar esta nueva ciudad, encontramos un gremio y por algo impulsivo agregue a todo el grupo en un 'Grupo de rescatistas', no lo pensemucho realmente, pero podiamos explorar nuevas tierra !! \n Nuestra primera mision fue ir a la misma mazmorra y poder conseguir partes de algunas criaturas... (mala idea), somos muy novatos para poder hacer algo tan peligroso sin experiencia. PERO ! es divertido 😃"}
   ],
 
   // ============================================================
