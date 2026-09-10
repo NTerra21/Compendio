@@ -604,10 +604,10 @@ function renderCharacter(id) {
     tabsNavHtml += '<button class="sheet-tab-btn active" data-target="tab-general">Trasfondo</button>';
     
     if (hasJournal) {
-      tabsNavHtml += '<button class="sheet-tab-btn" data-target="tab-journal">Bitácora de Viaje</button>';
+      tabsNavHtml += '<button class="sheet-tab-btn" data-target="tab-journal">Bitácora</button>';
       tabsContentHtml += 
         '<div id="tab-journal" class="tab-content sheet-body">' +
-          sectionHtml("Registro de Viaje", namedListHtml(character.journal, "title", "content")) +
+          sectionHtml("Registro de Aventuras", namedListHtml(character.journal, "title", "content")) +
         '</div>';
     }
     
