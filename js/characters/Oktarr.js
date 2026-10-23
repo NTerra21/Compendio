@@ -14,7 +14,7 @@ const Oktarr = {
 
   epithet: "La cazadora desorientada",
 
-  image: "images/Oktarr.png",
+  image: "img/Oktarr.png",
 
   petImage: "",
 
