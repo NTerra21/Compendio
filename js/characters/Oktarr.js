@@ -18,21 +18,21 @@ const Oktarr = {
 
   petImage: "",
 
-  tagline: "Una cazadora implacable que puede seguir cualquier rastro, pero no sabe cómo volver a casa.",
+  tagline: "Una cazadora implacable que puede seguir rastros, pero no sabe cómo volver a casa.",
 
   description: "Nacida en una tribu nómada de semi-orcos, Oktarr vivía una vida simple de caza e intercambio hasta que un peculiar incidente en un carnaval cambió su vida. Aunque no recuerda exactamente qué ocurrió tras ser capturada por colarse, desde aquel día carga con un vacío incomprensible, una fuerza desmedida que rompe lo delicado y una maldición irónica: es incapaz de encontrar el camino de regreso.",
 
-  appearance: "Semi-orca de complexión fuerte y robusta. Lleva ropas de viaje prácticas y herramientas de aspecto tosco, principalmente de metal grueso, debido a su tendencia a romper objetos frágiles. Su mirada es afilada cuando rastrea a una presa, pero a menudo refleja una profunda confusión cuando intenta ubicarse en un camino conocido.",
+  appearance: "Semi-orca de complexión fuerte y robusta. Lleva pieles de tigre algo viejas. Su mirada es afilada cuando rastrea a una presa, pero a menudo refleja una profunda confusión cuando intenta ubicarse en un camino conocido.",
 
   // ============================================================
   // ESTADÍSTICAS
   // ============================================================
   stats: {
-    age: "Joven",
-    class: "Explorador / Bárbaro",
-    subclass: "",
+    age: "27",
+    class: "Bárbaro",
+    subclass: "Sendero de la Bestia",
     multiclass: "",
-    level: "A definir"
+    level: "3"
   },
 
   // ============================================================
@@ -49,22 +49,22 @@ const Oktarr = {
   // ============================================================
   // PERSONALIDAD
   // ============================================================
-  personality: "Práctica, directa y algo terca. Si considera que un trato es justo y el otro no lo acepta, siente que está en su derecho de tomar su propio camino. Acepta con resignación y adaptabilidad sus peculiaridades, considerándolas cosas extrañas con las que simplemente le toca vivir.",
+  personality: "Práctica, directa y algo terca. Si considera que un trato es justo y el otro no lo acepta, siente que está en su derecho de tomar su propio camino.",
 
   ideals: [
-    "Pragmatismo: Las reglas estrictas y el dinero no tienen sentido si hay otras formas justas y razonables de hacer un intercambio.",
+    "Pragmatismo: Las reglas estrictas y el dinero no tienen sentido si hay otras formas justas, Morales y razonables de hacer un intercambio.",
     "Supervivencia y Disfrute: Siempre hay una manera de conseguir lo que necesitas o de disfrutar de la vida, ya sea negociando, cazando o colándote si es necesario."
   ],
   bonds: [
-    "Su tribu nómada, con quienes aprendió a sobrevivir, cazar y defenderse en los caminos.",
-    "Esa parte abstracta de sí misma que siente que perdió en el carnaval, un misterio que late en el fondo de su mente."
+    "Su tribu nómada, con quienes aprendió a sobrevivir, cazar y defenderse en todo este tiempo.",
+    "Esa parte abstracta de sí misma que siente que perdió en el carnaval, un misterio que late en el fondo de su ser."
   ],
   flaws: [
-    "Sentido de la orientación nulo: Puede rastrear una presa de forma impecable, pero es incapaz de encontrar el camino de vuelta a casa.",
+    "Sentido de la orientación nulo: Puede rastrear una presa, pero es incapaz de encontrar el camino de vuelta a casa o serguir direcciones.",
     "Manos destructivas: Rompe cosas delicadas y utensilios de madera constantemente sin siquiera aplicarle fuerza a propósito.",
     "Pérdida de memoria: Tiene un punto ciego absoluto sobre lo que ocurrió durante su captura, generándole una sensación constante de carencia."
   ],
-  motivations: "Aprender a lidiar con su torpeza hacia los objetos frágiles, encontrar su camino de regreso cuando se pierde y, quizás, descubrir qué fue exactamente lo que le arrebataron aquella noche.",
+  motivations: "algo.",
 
   // ============================================================
   // RELACIONES
@@ -94,7 +94,7 @@ const Oktarr = {
     },
     { 
       title: "Las secuelas extrañas", 
-      description: "El descubrimiento paulatino de su incapacidad para orientarse al regresar y su destructividad involuntaria con objetos delicados." 
+      description: "Su incapacidad para orientarse al intentar seguir una direccion o ubicarse y su destructividad involuntaria con objetos delicados o ligeramente fragiles." 
     }
   ],
 
