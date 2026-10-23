@@ -134,7 +134,7 @@ const Oktarr = {
   // ============================================================
   theme: {
     name: "Tigre Salvaje",
-    background: "repeating-linear-gradient(45deg, #c04c08, #c04c08 20px, #1a1005 20px, #1a1005 40px)",    sheet: "linear-gradient(to bottom, #2b3b2c 0%, #3e3223 45%, #2a1619 100%)",
+    background: "repeating-linear-gradient(45deg, #c04c08, #c04c08 20px, #1a1005 15px, #1a1005 30px)",    sheet: "linear-gradient(to bottom, #2b3b2c 0%, #3e3223 45%, #2a1619 100%)",
     sheet: "linear-gradient(to bottom, #2b1408 0%, #170a03 100%)",
     primary: "#f39c12",
     secondary: "#c68127",
