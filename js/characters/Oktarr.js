@@ -52,26 +52,26 @@ const Oktarr = {
   personality: "Práctica, directa y algo terca. Si considera que un trato es justo y el otro no lo acepta, siente que está en su derecho de tomar su propio camino.",
 
   ideals: [
-    "Pragmatismo: Las reglas estrictas y el dinero no tienen sentido si hay otras formas justas, Morales y razonables de hacer un intercambio.",
-    "Supervivencia y Disfrute: Siempre hay una manera de conseguir lo que necesitas o de disfrutar de la vida, ya sea negociando, cazando o colándote si es necesario."
+    "Pragmatismo: Las reglas estrictas y el dinero no siempre tienen sentido si existen otras formas justas y razonables de conseguir lo que uno necesita.",
+    "Supervivencia y Disfrute: Siempre hay una forma de conseguir lo que se necesita o de disfrutar la vida, ya sea mediante una buena caza, un trato justo o ganarlo a la fuerza (pulseada)."
   ],
   bonds: [
-    "Su tribu nómada, con quienes aprendió a sobrevivir, cazar y defenderse en todo este tiempo.",
-    "Esa parte abstracta de sí misma que siente que perdió en el carnaval, un misterio que late en el fondo de su ser."
+    "Su tribu nómada: Las personas con quienes aprendió a sobrevivir, cazar y defenderse. Son su familia y el lugar al que siempre intenta regresar.",
+    "Lo que perdió en el carnaval: Una sensación inexplicable de vacío que no consigue identificar. No sabe qué perdió ni por qué, pero es algo que permanece en el fondo de su ser."
   ],
   flaws: [
-    "Sentido de la orientación nulo: Puede rastrear una presa, pero es incapaz de encontrar el camino de vuelta a casa o serguir direcciones.",
-    "Manos destructivas: Rompe cosas delicadas y utensilios de madera constantemente sin siquiera aplicarle fuerza a propósito.",
-    "Pérdida de memoria: Tiene un punto ciego absoluto sobre lo que ocurrió durante su captura, generándole una sensación constante de carencia."
+    "Sentido de la orientación nulo: Puede rastrear una presa, pero es incapaz de encontrar el camino de vuelta a casa o serguir direcciones sin perderse.",
+    "Cualquier objeto frágil, herramienta fina o material delicado corre el riesgo de romperse en sus manos, incluso cuando intenta tratarlo con cuidado.",
+    "Vacío en sus recuerdos: No recuerda qué ocurrió después de que la atraparan en el carnaval, cómo salió ni cuánto tiempo pasó. No sabe qué sucedió durante ese intervalo y siente que algo le falta."
   ],
-  motivations: "Motivación: Aprender a orientarse mejor para no depender de los demás ni convertirse en una carga para su tribu.",
+  motivations: "Aprender a orientarse mejor para no depender de los demás ni convertirse en una carga para su tribu.",
 
   // ============================================================
   // RELACIONES
   // ============================================================
   relationships: [
     { 
-      name: "La Tribu Nómada", 
+      name: "La Tribu", 
       description: "Su familia y compañeros de caza. Son su ancla, aunque a menudo tengan que salir a buscarla cuando no sabe cómo regresar al asentamiento." 
     }
   ],
@@ -86,15 +86,15 @@ const Oktarr = {
     },
     { 
       title: "La noche del Carnaval", 
-      description: "El rechazo en la entrada, la infiltración ilícita para disfrutar del show y su posterior e inevitable captura." 
+      description: "El rechazo de su oferta de pago, la entrada sin permiso para disfrutar de los espectáculos y su posterior captura." 
     },
     { 
       title: "El despertar sin recuerdos", 
-      description: "El momento en que se encontró fuera del carnaval, sin memoria de su cautiverio y con la extraña sensación de haber perdido algo." 
+      description: "El momento en que volvió a encontrarse fuera del carnaval, sin recordar qué había sucedido después de su captura y con la extraña sensación de haber perdido algo." 
     },
     { 
       title: "Las secuelas extrañas", 
-      description: "Su incapacidad para orientarse al intentar seguir una direccion o ubicarse y su destructividad involuntaria con objetos delicados o ligeramente fragiles." 
+      description: "Con el paso del tiempo, descubrió que se perdía con facilidad al intentar regresar a un lugar conocido y que los objetos delicados tendían a romperse cuando los manipulaba." 
     }
   ],
 
@@ -116,7 +116,11 @@ const Oktarr = {
   other: [
     { 
       title: "Contraste de Exploración", 
-      content: "Su maldición para perderse no afecta sus instintos de caza. Es capaz de seguir huellas, ramas rotas y marcas en el suelo por horas, pero es el acto de 'regresar' el que resulta imposible." 
+      content: "Su dificultad para orientarse no afecta a sus instintos de caza. Puede seguir huellas, ramas rotas y otras marcas en el suelo, por ahi no es perfecta pero hace lo mejor posible, pero encontrar el camino de regreso sigue siendo un problema.",
+      title: "Desconocimiento de la maldición", 
+      content: "Oktarr sabe que se pierde con facilidad y que rompe objetos delicados, pero desconoce que ambas cosas son consecuencia de una maldición.",
+      title: "Desconocimiento de lo ocurrido", 
+      content: "No sabe que la pérdida de memoria, la desorientación y la maldición comenzaron cuando la atraparon en el carnaval. No recuerda lo suficiente como para relacionar esos acontecimientos."
     }
   ],
 
