@@ -64,7 +64,7 @@ const Oktarr = {
     "Manos destructivas: Rompe cosas delicadas y utensilios de madera constantemente sin siquiera aplicarle fuerza a propósito.",
     "Pérdida de memoria: Tiene un punto ciego absoluto sobre lo que ocurrió durante su captura, generándole una sensación constante de carencia."
   ],
-  motivations: "algo.",
+  motivations: "Motivación: Aprender a orientarse mejor para no depender de los demás ni convertirse en una carga para su tribu.",
 
   // ============================================================
   // RELACIONES
