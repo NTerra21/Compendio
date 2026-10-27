@@ -133,13 +133,25 @@ const Oktarr = {
   // TEMA VISUAL / COLORES
   // ============================================================
   theme: {
-    name: "Tigre Salvaje",
-    background: "repeating-linear-gradient(45deg, #c04c08, #c04c08 20px, #1a1005 15px, #1a1005 30px)",    sheet: "linear-gradient(to bottom, #2b3b2c 0%, #3e3223 45%, #2a1619 100%)",
-    sheet: "linear-gradient(to bottom, #2b1408 0%, #170a03 100%)",
-    primary: "#f39c12",
-    secondary: "#c68127",
-    accent: "#d35400",
-    text: "#f9e7d0"
+    name: "Furia del Tigre y Sombras",
+
+    // Un fondo nocturno profundo y natural, que va del negro sombra de bosque al naranja fuego/cobre oscuro
+    background: "linear-gradient(135deg, #0e0a06 0%, #1d1003 40%, #151b14 100%)",
+
+    // El panel de la ficha en un tono cuero/carbón oscuro con matices rojizos muy sutiles para no molestar la lectura
+    sheet: "linear-gradient(to bottom, #19120c 0%, #110d0a 100%)",
+
+    // Títulos en un naranja/ámbar encendido que recuerda el pelaje del tigre
+    primary: "#f47c20",
+
+    // Subtítulos y detalles en un dorado cobrizo desgastado
+    secondary: "#b58750",
+
+    // Acentos, botones y bordes en un rojo-naranja intenso de brasa/tigre
+    accent: "#d34107",
+
+    // Texto en un tono hueso/arena cálido muy suave que se lee perfecto sobre el fondo oscuro
+    text: "#eadcc9"
   }
 };
 
