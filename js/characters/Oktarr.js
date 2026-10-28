@@ -126,7 +126,7 @@ const Oktarr = {
     { 
       title: "Desconocimiento de lo ocurrido", 
       content: "No sabe que la pérdida de memoria, la desorientación y la maldición comenzaron cuando la atraparon en el carnaval. No recuerda lo suficiente como para relacionar esos acontecimientos."
-    },
+    },  
   ],
 
   // ============================================================
