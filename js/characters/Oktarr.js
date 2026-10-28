@@ -115,13 +115,18 @@ const Oktarr = {
   // ============================================================
   other: [
     { 
+    
       title: "Contraste de Exploración", 
       content: "Su dificultad para orientarse no afecta a sus instintos de caza. Puede seguir huellas, ramas rotas y otras marcas en el suelo, por ahi no es perfecta pero hace lo mejor posible, pero encontrar el camino de regreso sigue siendo un problema.",
+    },
+    {  
       title: "Desconocimiento de la maldición", 
-      content: "Oktarr sabe que se pierde con facilidad y que rompe objetos delicados, pero desconoce que ambas cosas son consecuencia de una maldición.",
+      content: "Oktarr sabe que se pierde con facilidad y que rompe objetos delicados, pero desconoce que ambas cosas son consecuencia de una maldición."
+    },
+    { 
       title: "Desconocimiento de lo ocurrido", 
       content: "No sabe que la pérdida de memoria, la desorientación y la maldición comenzaron cuando la atraparon en el carnaval. No recuerda lo suficiente como para relacionar esos acontecimientos."
-    }
+    },
   ],
 
   // ============================================================
